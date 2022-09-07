@@ -32,9 +32,6 @@
     @include medium() {
       width: 100%;
     }
-    @include desktop() {
-      width: 90%;
-    }
     @include mobile() {
       width: 60%;
     }
