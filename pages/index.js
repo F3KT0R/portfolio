@@ -1,14 +1,11 @@
-import Head from 'next/head'
-import React, { useState } from "react";
-import Image from 'next/image'
-import styles from '../styles/modules/Main.module.scss'
-import Main from './components/Main';
-import Nav from './components/Nav';
-import Footer from './components/Footer';
+import Head from "next/head";
+import React from "react";
+import styles from "../styles/modules/Main.module.scss";
+import Main from "./components/Main";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 export default function Home() {
-
-  
 
   return (
     <div className={styles.container}>
