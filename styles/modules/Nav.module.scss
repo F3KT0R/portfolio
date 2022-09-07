@@ -1,0 +1,70 @@
+@import "../mixins";
+
+.nav {
+  width: 100%;
+  z-index: 100000;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $nav-secondary;
+  .navlist {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+    li {
+      color: $secondary;
+      margin-left: 2.5rem;
+      flex-wrap: wrap;
+      &:last-child {
+        margin-right: 6rem;
+      }
+    }
+  }
+  .image {
+    position: relative;
+    margin-top: 2rem;
+    width: 4rem;
+    height: 4rem;
+    margin-left: 2rem;
+  }
+}
+
+.fade_bottom {
+  position: fixed;
+  width: 100%;
+  height: 22vh;
+  @include desktop() {
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $nav-secondary 42.7%,
+      $dark
+    );
+  }
+  @include desktop-xl() {
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $nav-secondary 32.8%,
+      $dark
+    );
+  }
+  @include mobile() {
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $nav-secondary 51%,
+      $dark
+    );
+  }
+}
+
+.menu_icon {
+  z-index: 10000;
+  margin-top: 2.5rem;
+  margin-right: -120%;
+  margin-bottom: 0;
+  padding: 0 0 0 0;
+  display: none;
+}

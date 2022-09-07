@@ -1,0 +1,42 @@
+@import "../mixins";
+
+@keyframes borderAnimation {
+  0% {
+    width: 0%;
+    border-top: .1rem solid $secondary;
+  }
+  100% {
+    width: 40%;
+    border-top: .1rem solid $secondary;
+  }
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding-top: 6.5em;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  @include desktop-xl() {
+    padding-top: 11.4em;
+  }
+
+  .text {
+    animation: borderAnimation 3s;
+    transition: all .7s ease;
+    width: 40%;
+    border-top: .1rem solid $secondary;
+    line-height: 3rem;
+    text-align: center;
+    @include medium() {
+      width: 100%;
+    }
+    @include desktop() {
+      width: 90%;
+    }
+    @include mobile() {
+      width: 60%;
+    }
+  }
+}
