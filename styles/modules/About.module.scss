@@ -4,28 +4,36 @@
     display: flex;
     flex-direction: row;
     padding: 13rem;
+    gap: 10rem;
 
     hr {
         width: 30%;
-        margin-left: 0;
-    }
-
-    span {
-        font-weight: bold;
-        z-index: 0;
+        margin: 2rem 0;
     }
 
     .text {
         max-width: 50%;
         margin: auto;
         padding-right: 5rem;
+        text-align: justify;
+        span {
+            font-weight: bold;
+            z-index: 0;
+        }
 
+        p {
+            padding-left: 2rem;
+        }
+    }
+
+    .image_container {
+        margin: 0;
+        max-width: 50%;
+        padding-right: 0;
     }
 
     .image {
         scale: .7;
-        max-width: 50%;
-        padding-left: 0;
         cursor: pointer;
     }
 }
