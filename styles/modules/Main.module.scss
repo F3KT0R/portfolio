@@ -11,6 +11,23 @@
   100% { opacity: 1; }
 }
 
+@keyframes rotateWords {
+  5% {
+    opacity: 1;
+  }
+  10%, 20% {
+    opacity: 1;
+    transform: rotate(3deg);
+  }
+  15% {
+    transform: rotate(-1deg);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(4rem) rotate(10deg);
+  }
+}
+
 .main {
   min-height: 80vh;
   padding: 11em 0 0 0;
@@ -40,6 +57,23 @@
 
   h3 {
     line-height: 2.5rem;
+  
+    .rotate {
+     display: inline;
+     margin-left: 1rem; 
+    }
+
+    .rotate span{
+      width: max-content;
+      position: absolute;
+      background-color: $secondary;
+      color: $light;
+      text-shadow: .1rem .1rem $dark;
+      padding-inline: 1em;
+      opacity: 0;
+      transform-origin: 10% 75%;
+      animation: rotateWords 16s var(--d) linear infinite;
+    }
   }
 
   hr {

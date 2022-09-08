@@ -53,7 +53,15 @@ function Main() {
       <div>
         <h1><span>&lt;h1&gt;</span><br />&nbsp;&nbsp;Hello World!<br /><span>&lt;/h1&gt;</span></h1>
         <hr />
-        <h3><span>&lt;p&gt;</span><br />&nbsp;&nbsp; A junior web developer <br />&nbsp;&nbsp; and welcome to my story... <br /><span>&lt;/p&gt;</span></h3>
+        <h3><span>&lt;p&gt;</span><br />&nbsp;&nbsp;
+          <div className={styles.rotate}>
+            I'm &nbsp;<span style={{'--d': '0s'}}>Tibor</span> 
+            <span style={{'--d': '4s'}}>a Junior Web Developer</span> 
+            <span style={{'--d': '8s'}}>a Junior Software Developer</span> 
+            <span style={{'--d': '12s'}}>a Quality Assurance Engineer</span> 
+          </div>
+          <br />&nbsp;&nbsp; and welcome to my story... <br /><span>&lt;/p&gt;</span>
+        </h3>
       </div>      
     </div>
   )
