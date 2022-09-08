@@ -1,34 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import Image from 'next/future/image';
 import styles from '../../styles/modules/Nav.module.scss';
-import logo_black from '../../public/logo-black.png';
 import logo_white from '../../public/logo-white.png';
 import { IoGridOutline } from 'react-icons/io5';
 
 function Nav() {
-    const [theme, setTheme] = useState(true);
-
-    const handleClick = () => {
-        setTheme(!theme);
-        };
-
-    return (
+       return (
         <>
             <nav className={styles.nav}>
                 <Image 
-                    src={theme == true ? logo_white : logo_black}
+                    src={logo_white}
                     alt='F3'
                     className={styles.image}
-                    onClick={() => handleClick()}
                     layout={'raw'}
                 />
 
                 <IoGridOutline className={styles.menu_icon}/>
                 <ul className={styles.navlist}>
-                    <li>About Me</li>
-                    <li>Experience</li>
-                    <li>Projects</li>
-                    <li>Contact</li>
+                    <Link href='/#home'><li>Home</li></Link>
+                    <Link href='/#about'><li>About Me</li></Link>
+                    <Link href='/#experience'><li>Experience</li></Link>
+                    <Link href='/#project'><li>Projects</li></Link>
+                    <Link href='/#contact'><li>Contact</li></Link>
                 </ul>
             </nav>
             <div className={styles.fade_bottom} />

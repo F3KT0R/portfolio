@@ -12,15 +12,15 @@
 }
 
 .footer {
+  z-index: 100000;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   flex: 1;
-  padding-top: 7.5em;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  @include desktop-xl() {
-    padding-top: 11.4em;
-  }
+  background-color: $dark;
 
   .text {
     animation: borderAnimation 3s;

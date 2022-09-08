@@ -1,8 +1,9 @@
 import Head from "next/head";
 import React from "react";
 import styles from "../styles/modules/Main.module.scss";
-import Main from "./components/Main";
 import Nav from "./components/Nav";
+import Main from "./components/Main";
+import About from "./components/About";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -16,7 +17,8 @@ export default function Home() {
       </Head>
 
       <Nav />
-      <Main />
+      <div id='home'><Main /></div>
+      <div id='about'><About /></div>
       <Footer />
     </div>
   )

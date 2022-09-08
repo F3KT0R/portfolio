@@ -1,0 +1,31 @@
+@import "../mixins";
+
+.container {
+    display: flex;
+    flex-direction: row;
+    padding: 13rem;
+
+    hr {
+        width: 30%;
+        margin-left: 0;
+    }
+
+    span {
+        font-weight: bold;
+        z-index: 0;
+    }
+
+    .text {
+        max-width: 50%;
+        margin: auto;
+        padding-right: 5rem;
+
+    }
+
+    .image {
+        scale: .7;
+        max-width: 50%;
+        padding-left: 0;
+        cursor: pointer;
+    }
+}
