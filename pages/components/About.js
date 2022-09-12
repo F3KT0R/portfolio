@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import styles from '../../styles/modules/About.module.scss';
 import Image from 'next/future/image';
-import optica from '../../public/optica.png'
+import optica from '../../public/optica.png';
 
 function About() {
   return (

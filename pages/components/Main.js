@@ -31,6 +31,7 @@ function Main() {
           alt='Portrait'
           className={styles.image}
           layout={'raw'}
+          priority
         />
 
         <div className={styles.circlegraph} ref={graph}>
