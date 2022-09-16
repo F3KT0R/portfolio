@@ -4,7 +4,7 @@ import styles from '../../styles/modules/Work.module.scss';
 function Work_card({title, year, role, address, link, desc}) {
   return (
     <div className={styles.wrapper}>
-        <br /><span>&lt;div&gt;</span>
+        <span>&lt;div&gt;</span>
         <a href={link} target='_blank' rel="noopener noreferrer"><h1 className={styles.title}>
             {title}
         </h1></a>

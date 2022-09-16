@@ -5,7 +5,7 @@ import styles from '../../styles/modules/Project.module.scss';
 function Project_card({title, technologies, poster, link, desc}) {
   return (
     <div className={styles.wrapper}>
-        <br /><span>&lt;div&gt;</span>
+        <span>&lt;div&gt;</span>
 
         <a href={link} target='_blank' rel="noopener noreferrer"><h1 className={styles.title}>
             {title}
@@ -18,7 +18,7 @@ function Project_card({title, technologies, poster, link, desc}) {
         <div className={styles.technologies}>{technologies != undefined ? technologies.map((line, idx) => <p key={idx}>{line}</p>) : ''}</div>
         
         <div className={styles.desc}>{desc != undefined ? desc.split('\n').map((line, idx) => <p key={idx}>{line}</p>) : ''}</div>
-        <span>&lt;/div&gt;</span><br />
+        <span>&lt;/div&gt;</span>
 
     </div>
   )

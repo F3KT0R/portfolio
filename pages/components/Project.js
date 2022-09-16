@@ -10,8 +10,9 @@ function Project() {
     <div className={styles.project}>
       <br /><span>&lt;h1&gt;</span><br />
       <h1>&nbsp;&nbsp;These are all mine:</h1>
-      <br /><span>&lt;/h1&gt;</span><br />
       <hr />
+      <span>&lt;/h1&gt;</span><br />
+      
       <div className={styles.container}>
       <Card 
         title='Medieval Fort' 

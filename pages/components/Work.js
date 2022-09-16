@@ -7,8 +7,8 @@ function Work() {
     <div className={styles.work}>
       <br /><span>&lt;h1&gt;</span><br />
       <h1>&nbsp;&nbsp;Where have I worked?</h1>
-      <br /><span>&lt;/h1&gt;</span><br />
       <hr />
+      <span>&lt;/h1&gt;</span><br />
       
       <div className={styles.container}>
 
