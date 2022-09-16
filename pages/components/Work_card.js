@@ -10,7 +10,7 @@ function Work_card({title, year, role, address, link, desc}) {
         <h3 className={styles.date}>{year}</h3>
         <h3 className={styles.text}>{role}</h3>
         <h3 className={styles.text}>{address}</h3>
-        <div className={styles.desc}>{desc === undefined ? desc.split('\n').map((line, idx) => <p key={idx}>{line}</p>) : ''}</div>
+        <div className={styles.desc}>{desc != undefined ? desc.split('\n').map((line, idx) => <p key={idx}>{line}</p>) : ''}</div>
 
     </div>
   )
