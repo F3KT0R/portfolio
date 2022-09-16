@@ -3,11 +3,11 @@
 @keyframes borderAnimation {
   0% {
     width: 0%;
-    border-top: .1rem solid $secondary;
+    border-top: .08rem solid $secondary;
   }
   100% {
     width: 40%;
-    border-top: .1rem solid $secondary;
+    border-top: .08rem solid $secondary;
   }
 }
 
@@ -23,11 +23,11 @@
   background-color: $dark;
 
   .text {
-    animation: borderAnimation 3s;
+    animation: borderAnimation 2s;
     transition: all .7s ease;
     width: 40%;
-    border-top: .1rem solid $secondary;
-    line-height: 3rem;
+    border-top: .08rem solid $secondary;
+    line-height: 2em;
     text-align: center;
     @include medium() {
       width: 100%;

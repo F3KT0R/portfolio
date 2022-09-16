@@ -1,10 +1,18 @@
 @import "../mixins";
 
 .container {
+    margin: 0 1em;
     display: flex;
+    min-height: 100vh;
     flex-direction: row;
     padding: 13rem;
     gap: 10rem;
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $dark,
+      $dark2
+    );
 
     hr {
         width: 30%;

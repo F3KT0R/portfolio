@@ -4,6 +4,7 @@ import styles from "../styles/modules/Main.module.scss";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
 import About from "./components/About";
+import Work from "./components/Work";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Nav />
       <div id='home'><Main /></div>
       <div id='about'><About /></div>
+      <div id='experience'><Work /></div>
       <Footer />
     </div>
   )

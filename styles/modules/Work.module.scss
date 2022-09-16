@@ -1,1 +1,47 @@
 @import "../mixins";
+
+.container {
+    padding: 3em;
+    margin: 0 1em 3em 1em; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+    background: $dark2;
+}
+
+.wrapper {
+    padding: 0 3em;
+    line-height: 2em;
+    min-width: 25%;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+    border: .3em solid $nav-secondary;
+    border-radius: 2em;
+    box-shadow: .5em .5em 2em $nav-secondary;
+
+    .title {
+        cursor: pointer;
+        line-height: 4em;
+        transition: .5s ease;
+        &:hover {
+            scale: 1.2;
+            transition: .5s ease;
+        }
+    }
+    .date {
+        padding-top: 1.2em;
+        border-top: .03em solid $secondary;
+    }
+    #end {
+        display: inline;
+    }
+    .desc {
+        padding-top: 1.2em;
+        text-align: justify;
+        word-wrap: break-word;
+        line-height: .8em;
+        border-top: .03em solid $secondary;
+    }
+}
