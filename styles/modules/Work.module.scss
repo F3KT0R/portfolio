@@ -1,13 +1,24 @@
 @import "../mixins";
 
-.container {
+.work {
+    background-color: $dark2;
     padding: 3em;
-    margin: 0 1em 3em 1em; 
+    padding-top: 15em;
+    margin: 0 1em 0 1em;
+    
+    hr {
+        width: 20%;
+        margin: 2em 0;
+    } 
+
+}
+
+.container {
+    padding: 10em 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 3rem;
-    background: $dark2;
 }
 
 .wrapper {
@@ -17,9 +28,6 @@
     flex-wrap: wrap;
     text-align: center;
     margin: auto;
-    border: .3em solid $nav-secondary;
-    border-radius: 2em;
-    box-shadow: .5em .5em 2em $nav-secondary;
 
     .title {
         cursor: pointer;
@@ -43,5 +51,12 @@
         word-wrap: break-word;
         line-height: .8em;
         border-top: .03em solid $secondary;
+    }
+    span {
+        padding-top: 6em;
+        display: flex;
+        flex: 1;
+        text-align: left;
+        white-space: nowrap;
     }
 }
