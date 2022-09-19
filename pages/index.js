@@ -6,6 +6,7 @@ import Main from "./components/Main";
 import About from "./components/About";
 import Work from "./components/Work";
 import Project from "./components/Project";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
       <div id='about'><About /></div>
       <div id='experience'><Work /></div>
       <div id='project'><Project /></div>
+      <div id='contact'><Contact /></div>
       <Footer />
     </div>
   )

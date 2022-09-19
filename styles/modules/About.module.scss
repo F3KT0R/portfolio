@@ -2,26 +2,29 @@
 
 .container {
     margin: 0 1em;
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        $dark,
+        $dark2
+        );
     display: flex;
     min-height: 100vh;
     flex-direction: row;
     padding: 13rem;
     gap: 10rem;
-    background-image: linear-gradient(
-      to bottom,
-      transparent,
-      $dark,
-      $dark2
-    );
+    
 
     hr {
         width: 30%;
         margin: 2rem 0;
+        border-color: $secondary;
     }
 
     .text {
         max-width: 50%;
         margin: auto;
+        margin-top: 0;
         padding-right: 5rem;
         text-align: justify;
         span {
@@ -34,14 +37,40 @@
         }
     }
 
-    .image_container {
-        margin: 0;
-        max-width: 50%;
-        padding-right: 0;
+    .side {
+        min-width: 50%;
+        display: flex;
+        flex-direction: column;
+        
+        .image_container {
+            display: flex;
+            flex-direction: column;
+            min-height: 50%;
+            justify-content: center;
+
+            .image {
+                margin: 0 auto;
+                display:block;
+                scale: 1.4;
+                max-height: 25em;
+                max-width: fit-content;
+                cursor: pointer;
+            }
+        }
+
+        .cv {
+    
+            button {
+                scale: 1.5;
+                margin: 0 auto;
+                display:block;
+                &:focus{
+                    transition: 1s all;
+                    background-color: $secondary;
+                }
+            }
+        }
     }
 
-    .image {
-        scale: .7;
-        cursor: pointer;
-    }
+
 }

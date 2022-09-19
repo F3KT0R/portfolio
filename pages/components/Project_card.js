@@ -10,11 +10,11 @@ function Project_card({title, technologies, poster, link, desc}) {
         <a href={link} target='_blank' rel="noopener noreferrer"><h1 className={styles.title}>
             {title}
         </h1></a>
-        <Image 
+        <a href={link} target='_blank' rel="noopener noreferrer"><Image 
           src={poster}
           alt={`Poster of ${title} project`}
           className={styles.image}
-        />
+        /></a>
         <div className={styles.technologies}>{technologies != undefined ? technologies.map((line, idx) => <p key={idx}>{line}</p>) : ''}</div>
         
         <div className={styles.desc}>{desc != undefined ? desc.split('\n').map((line, idx) => <p key={idx}>{line}</p>) : ''}</div>

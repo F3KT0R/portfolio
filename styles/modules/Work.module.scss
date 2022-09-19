@@ -10,12 +10,14 @@
         width: 20%;
         margin: 2em 0;
         margin-left: 2em;
+        border-color: $secondary;
+
     } 
 
 }
 
 .container {
-    padding: 10em 0;
+    padding: 1em 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -41,7 +43,7 @@
     }
     .date {
         padding-top: 1.2em;
-        border-top: .03em solid $secondary;
+        border-top: .2em solid $nav-secondary;
     }
     #end {
         display: inline;
@@ -50,8 +52,8 @@
         padding-top: 1.2em;
         text-align: justify;
         word-wrap: break-word;
-        line-height: .8em;
-        border-top: .03em solid $secondary;
+        line-height: .8em;        
+        border-top: .2em solid $nav-secondary;
     }
     span {
         padding-top: 6em;

@@ -1,0 +1,49 @@
+@import "../mixins";
+
+.contact {
+  background-color: $dark3;
+  padding: 7em 4em;
+  margin: 0 1em 0 1em;
+  display: flex;
+  flex-direction: row;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+
+    h1 {
+      text-align: center;
+    }
+
+    hr {
+      width: 40%;
+      margin-bottom: 4rem;
+      border-color: $secondary;
+    }
+
+    .icons {
+      display: grid;
+      grid-template-columns: 3em 3em;
+      grid-template-rows: auto auto;
+      grid-column-gap: 2em;
+      grid-row-gap: 3em;
+      justify-content: center;
+
+
+      .icon {
+        scale: 2.5;
+        gap: 1rem;
+        transition: 1s ease-in;
+      }
+    }
+
+    .action {
+      display: flex;
+      flex-direction: row;
+      gap: 5em;
+      justify-content: center;
+    }
+  }  
+}

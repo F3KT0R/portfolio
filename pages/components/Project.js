@@ -9,7 +9,7 @@ function Project() {
   return (
     <div className={styles.project}>
       <br /><span>&lt;h1&gt;</span><br />
-      <h1>&nbsp;&nbsp;These are all mine:</h1>
+      <h1>&nbsp;&nbsp;Say hello to my projects:</h1>
       <hr />
       <span>&lt;/h1&gt;</span><br />
       

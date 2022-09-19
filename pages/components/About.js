@@ -9,8 +9,8 @@ function About() {
         <div className={styles.text}>
             <span>&lt;h1&gt;</span><br />
             <h1>&nbsp;&nbsp;About me:</h1>
-            <br /><span>&lt;/h1&gt;</span><br />
             <hr />
+            <span>&lt;/h1&gt;</span><br /><br /><br /><br />
             <span>&lt;p&gt;</span><br />
             <p>I've studied <span>Computer Sciences</span> at the <span>University of Szeged</span>.</p>
             <p>I was born in a small town in the Vojvodina region of Serbia which is called <span>Novi Bečej</span>.</p>
@@ -20,17 +20,24 @@ function About() {
             <p>In my free time I do <span>Photography</span> and I play the <span>Piano</span> since I was little. I even have a Degree from Elementary Music School.</p>
             <br /><span>&lt;/p&gt;</span><br />
         </div>
-       
-        <div className={styles.image_container}>
-        <span>&lt;Image</span><br />
+      
+        <div className={styles.side}>
+          <a href={'https://www.instagram.com/_opticaphoto/'} target='_blank' rel="noopener noreferrer"><div className={styles.image_container}>
+            <span>&lt;Image</span>
             <Image 
-                src={optica}
-                alt='Portrait'
-                className={styles.image}
-                layout={'raw'}
-            />
-        <span>/&gt;</span><br />
+                  src={optica}
+                  alt='Portrait'
+                  className={styles.image}
+                  layout={'raw'}
+              />
+          <span>/&gt;</span><br /><br /><br />
+        </div></a>
+        <div className={styles.cv}>
+          <span>&lt;button&gt;</span><br /><br />
+          <a href={'https://drive.google.com/uc?export=download&id=1RSK8hkLff09469JrWYunA7riM3rHUj7g'}><button>Curriculum Vitae</button></a>
+          <br /><br /><span>&lt;/button&gt;</span>
         </div>
+      </div>    
     </div>
   )
 }

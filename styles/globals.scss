@@ -36,3 +36,12 @@ span {
   color: $secondary;
   opacity: 0.8;
 }
+
+button {
+  background-color: inherit;
+  cursor: pointer;
+  padding: 1em 3em;
+  font-size: larger;
+  border: .2em solid $secondary;
+  font-weight: bold;
+}

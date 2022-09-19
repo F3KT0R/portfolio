@@ -3,13 +3,21 @@
 .project {
     background-color: $dark2;
     padding: 3em;
-    padding-top: 15em;
+    padding-top: 11em;
     margin: 0 1em 0 1em;
+
+    background-image: linear-gradient(
+      to bottom,
+       transparent,
+      $dark2 90%,
+      $dark3
+    );
     
     hr {
         width: 20%;
         margin: 2em 0;
         margin-left: 2em;
+        border-color: $secondary;
     } 
 
 }
@@ -64,13 +72,19 @@
         background-repeat: no-repeat;
         background-position: center;
         box-shadow: .5em .5em 2em $nav-secondary;
+        transition: .5s ease-in;
+
+        &:hover {
+            scale: 1.1;
+            transition: .5s ease-in;
+        }
 }
 
     .desc {
         padding-top: 1.2em;
         text-align: justify;
         word-wrap: break-word;
-        border-top: .03em solid $secondary;
+        border-top: .2em solid $nav-secondary;
     }
 
     span {
