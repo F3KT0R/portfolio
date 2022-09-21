@@ -22,7 +22,6 @@
 
 .container {
     font-size: larger;
-    min-width: max-content;
     padding: 1em 0;
     display: flex;
     flex-direction: row;
@@ -34,23 +33,12 @@
 }
 
 .wrapper {
-    @include small() {
-        margin-left: 10em;
-    }
     padding: 0 3em;
     line-height: 2em;
     min-width: 25%;
     flex-wrap: wrap;
     text-align: center;
-    margin: auto;
-
-    @include medium() {
-        font-size: xx-large;
-    }
-
-    @include small() {
-        font-size: large;
-    }
+    margin: auto;    
 
     .title {
         margin: auto;

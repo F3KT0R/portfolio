@@ -11,7 +11,7 @@
     display: flex;
     min-height: 100vh;
     flex-direction: row;
-    padding: 13rem;
+    padding: 13em 5em;
     gap: 10rem;
 
     @include large() {
@@ -21,14 +21,11 @@
 
     hr {
         width: 30%;
-        margin: 2rem 0;
+        margin: 2em 0;
         border-color: $secondary;
     }
 
     .text {
-        @include large() {
-            font-size: x-large;
-        }
         margin: auto;
         margin-top: 0;
         padding-right: 5rem;
@@ -39,9 +36,6 @@
         span {
             font-weight: bold;
             z-index: 0;
-            @include large() {
-                font-size: x-large;
-            }
         }
 
         p {

@@ -28,7 +28,6 @@
 }
 
 .container {
-    min-width: max-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -45,14 +44,6 @@
     flex-wrap: wrap;
     text-align: center;
     margin: auto;
-
-    @include medium() {
-        font-size: large;
-    }
-
-    @include small() {
-        font-size: medium;
-    }
 
     .title {
         margin: auto;
@@ -74,10 +65,9 @@
         opacity: .8;
         font-weight: bold;
 
-        @include small() {
+        @include large() {
             column-gap: 2em;
             margin-left: -13%;
-            min-width: max-content
         }
         
         p{

@@ -13,13 +13,13 @@
   }
 
   & > .wrapper {
-    @include xlarge() {
-      margin-left: 20em;
-    }
+    // @include xlarge() {
+    //   margin-left: 20em;
+    // }
     
-    @include large() {
-      margin-left: 20em;
-    }
+    // @include large() {
+    //   margin-left: 20em;
+    // }
     
     @include medium() {
       margin-left: 20em;
@@ -30,8 +30,7 @@
     }
   }
 
-  .wrapper {    
-    min-width: max-content;
+  .wrapper {
     display: flex;
     flex-direction: column;
     width: 50%;
