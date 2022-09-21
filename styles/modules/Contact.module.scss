@@ -7,7 +7,31 @@
   display: flex;
   flex-direction: row;
 
-  .wrapper {
+  @include small() {
+    flex-direction: column;
+    gap: 10em;
+  }
+
+  & > .wrapper {
+    @include xlarge() {
+      margin-left: 20em;
+    }
+    
+    @include large() {
+      margin-left: 20em;
+    }
+    
+    @include medium() {
+      margin-left: 20em;
+    }
+    
+    @include small() {
+      margin-left: 15em;
+    }
+  }
+
+  .wrapper {    
+    min-width: max-content;
     display: flex;
     flex-direction: column;
     width: 50%;

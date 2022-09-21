@@ -2,8 +2,7 @@
 
 .project {
     background-color: $dark2;
-    padding: 3em;
-    padding-top: 11em;
+    padding: 11em 3em 3em 3em;
     margin: 0 1em 0 1em;
 
     background-image: linear-gradient(
@@ -12,6 +11,12 @@
       $dark2 90%,
       $dark3
     );
+
+    
+    h1 {
+        width: max-content;
+    }
+    
     
     hr {
         width: 20%;
@@ -23,10 +28,14 @@
 }
 
 .container {
+    min-width: max-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 3rem;
+    @include medium() {
+        flex-direction: column;
+    }
 }
 
 .wrapper {
@@ -37,7 +46,17 @@
     text-align: center;
     margin: auto;
 
+    @include medium() {
+        font-size: large;
+    }
+
+    @include small() {
+        font-size: medium;
+    }
+
     .title {
+        margin: auto;
+        text-align: center;
         cursor: pointer;
         line-height: 4em;
         transition: .5s ease;
@@ -54,6 +73,12 @@
         color: $secondary;
         opacity: .8;
         font-weight: bold;
+
+        @include small() {
+            column-gap: 2em;
+            margin-left: -13%;
+            min-width: max-content
+        }
         
         p{
             transition: .5s ease;

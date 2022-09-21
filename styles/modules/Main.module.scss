@@ -35,10 +35,13 @@
   } 
 }
 
+.container {
+  min-width: fit-content;
+}
 
 .main {
   min-height: 80vh;
-  padding: 11em 0 0 0;
+  padding: 11em 0 0 10em;
   margin-bottom: 12em;
   flex: 1;
   display: flex;
@@ -48,47 +51,57 @@
   align-items: center;
   gap: 13em;
 
-  .image {
-    position: relative;
-    z-index: 1;
-    background: radial-gradient(
-      circle 27rem,
-      $nav-secondary,
-      $dark 47%
-    );
-    margin-top: 2rem;
-    width: 25rem;
-    height: 25rem;
-    animation: fadeIn 3s;
-    transition: all .7s ease;
-
+  @include small() {
+    flex-direction: column;
+    padding-right: 15em;
   }
 
-  h3 {
-    line-height: 2.5rem;
-  
-    .rotate {
-     display: inline;
-     margin-left: 1rem; 
+  .image_container {
+    .image {
+      position: relative;
+      z-index: 1;
+      background: radial-gradient(
+        circle 27rem,
+        $nav-secondary,
+        $dark 47%
+      );
+      margin-top: 2rem;
+      width: 25rem;
+      height: 25rem;
+      animation: fadeIn 3s;
+      transition: all .7s ease;
     }
+  }
 
-    .rotate span{
+  .text {
+    h3 {
+      line-height: 2.5rem;
       width: max-content;
-      position: absolute;
-      background-color: $secondary;
-      color: $text;
-      text-shadow: .1rem .1rem $dark;
-      padding-inline: 1em;
-      opacity: 0;
-      transform-origin: 10% 75%;
-      animation: rotateWords 16s var(--d) linear infinite;
+    
+      .rotate {
+       display: inline;
+       margin-left: 1rem; 
+      }
+  
+      .rotate span{
+        width: max-content;
+        position: absolute;
+        background-color: $secondary;
+        color: $text;
+        text-shadow: .1rem .1rem $dark;
+        padding-inline: 1em;
+        opacity: 0;
+        transform-origin: 10% 75%;
+        animation: rotateWords 16s var(--d) linear infinite;
+      }
+    }
+  
+    hr {
+      width: 30%;
+      margin-left: 0;
     }
   }
-
-  hr {
-    width: 30%;
-    margin-left: 0;
-  }
+  
 
   .circlegraph {
     position: absolute;

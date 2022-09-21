@@ -8,6 +8,7 @@
   flex-direction: row;
   justify-content: space-between;
   background-color: $nav-secondary;
+  
   .navlist {
     display: flex;
     justify-content: center;
@@ -23,6 +24,10 @@
     }
   }
   .image {
+    @include small() {
+      display: flex;
+      flex-direction: column;
+    }
     position: relative;
     margin-top: 2rem;
     width: 4rem;
@@ -35,37 +40,47 @@
   position: fixed;
   width: 100%;
   height: 22vh;
-  @include desktop() {
-    background-image: linear-gradient(
-      to bottom,
-      transparent,
-      $nav-secondary 42.7%,
-      transparent
-    );
-  }
-  @include desktop-xl() {
-    background-image: linear-gradient(
-      to bottom,
-      transparent,
-      $nav-secondary 32.8%,
-      transparent
-    );
-  }
-  @include mobile() {
-    background-image: linear-gradient(
-      to bottom,
-      transparent,
-      $nav-secondary 51%,
-      transparent
-    );
-  }
-}
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    $nav-secondary 32.8%,
+    transparent
+  );
 
-.menu_icon {
-  z-index: 10000;
-  margin-top: 2.5rem;
-  margin-right: -120%;
-  margin-bottom: 0;
-  padding: 0 0 0 0;
-  display: none;
+  @include xlarge() {
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $nav-secondary 41%,
+      transparent
+    );
+  }
+
+  @include large() {
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $nav-secondary 15%,
+      transparent
+    );
+  }
+
+  @include medium() {
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $nav-secondary 30%,
+      transparent
+    );
+  }
+
+  @include small() {
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $nav-secondary,
+      transparent
+    );
+  }
+  
 }

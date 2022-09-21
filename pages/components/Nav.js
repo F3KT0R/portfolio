@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/future/image';
 import styles from '../../styles/modules/Nav.module.scss';
 import logo_white from '../../public/logo-white.png';
-import { IoGridOutline } from 'react-icons/io5';
 
 function Nav() {
        return (
@@ -15,8 +14,7 @@ function Nav() {
                     className={styles.image}
                     layout={'raw'}
                 />
-
-                <IoGridOutline className={styles.menu_icon}/>
+                
                 <ul className={styles.navlist}>
                     <Link href='/#home'><li>Home</li></Link>
                     <Link href='/#about'><li>About Me</li></Link>

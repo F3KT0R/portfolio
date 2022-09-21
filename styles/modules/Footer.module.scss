@@ -21,19 +21,15 @@
   justify-content: center;
   align-items: center;
   background-color: $dark;
+  
 
   .text {
+    min-width: max-content;
     animation: borderAnimation 2s;
     transition: all .7s ease;
     width: 40%;
     border-top: .08em solid $secondary;
     line-height: 2em;
     text-align: center;
-    @include medium() {
-      width: 100%;
-    }
-    @include mobile() {
-      width: 60%;
-    }
   }
 }

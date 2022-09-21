@@ -1,6 +1,7 @@
-$layout-breakpoint-s: 640px;
-$layout-breakpoint-m: 768px;
-$layout-breakpoint-l: 1999px;
+$layout-breakpoint-s: 650px;
+$layout-breakpoint-m: 900px;
+$layout-breakpoint-l: 1600px;
+$layout-breakpoint-xl: 2500px;
 
 $dark: #050d17;
 $dark2: #0b1d34;
@@ -9,44 +10,26 @@ $text: #fdf8d0;
 $nav-secondary: #000103;
 $secondary: #a1e737b5;
 
+@mixin xlarge() {
+  @media (max-width: $layout-breakpoint-xl) {
+      @content;
+  }
+}
+
+@mixin large() {
+  @media (max-width: $layout-breakpoint-l) {
+      @content;
+  }
+}
+
 @mixin medium() {
   @media (max-width: $layout-breakpoint-m) {
       @content;
   }
 }
 
-@mixin tablet() {
-    @media (min-width: 641px) and (max-width: $layout-breakpoint-m) {
-        @content;
-    }
-}
-
-@mixin desktop() {
-    @media (min-width: 769px) and (max-width: $layout-breakpoint-l) {
-      @content;
-    }
-}
-
-@mixin desktop-xl() {
-  @media (min-width: 2000px) {
-    @content;
-  }
-}
-
-@mixin mobile() {
-    @media (min-width: 300px) and (max-width: $layout-breakpoint-s) {
-      @content;
-    }
-}
-
-@mixin dark-theme() {
-    @media (prefers-color-scheme: dark) {
-      @content;
-    }
-}
-
-@mixin light-theme() {
-    @media (prefers-color-scheme: light) {
+@mixin small() {
+    @media (max-width: $layout-breakpoint-s) {
       @content;
     }
 }

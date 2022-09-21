@@ -33,7 +33,7 @@ function About() {
           <span>/&gt;</span><br /><br /><br />
         </div></a>
         <div className={styles.cv}>
-          <span>&lt;button&gt;</span><br /><br />
+          <span>&lt;button&gt;</span><br /><br /><br />
           <a href={'https://drive.google.com/uc?export=download&id=1RSK8hkLff09469JrWYunA7riM3rHUj7g'}><button>Curriculum Vitae</button></a>
           <br /><br /><span>&lt;/button&gt;</span>
         </div>

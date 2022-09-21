@@ -25,7 +25,7 @@ function Main() {
   
   return (
     <div className={styles.main}>
-      <div>
+      <div className={styles.image_container}>
         <Image 
           src={portrait}
           alt='Portrait'
@@ -51,7 +51,7 @@ function Main() {
           <SiNetlify className={styles.circle}/>
         </div>
       </div>
-      <div>
+      <div className={styles.text}>
         <h1><span>&lt;h1&gt;</span><br />&nbsp;&nbsp;Hello World!<br /><span>&lt;/h1&gt;</span></h1>
         <hr />
         <h3><span>&lt;p&gt;</span><br />&nbsp;&nbsp;
