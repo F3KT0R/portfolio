@@ -5,11 +5,9 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Roboto Mono', monospace;
-  @media (prefers-color-scheme: dark) {
-      color-scheme: dark;
-      color: $text;
-      background: $dark;
-  }
+  color-scheme: dark;
+  color: $text;
+  background: $dark;
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
   }
