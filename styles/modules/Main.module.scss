@@ -36,7 +36,6 @@
 }
 
 .container {
-  // width: max-content;
   @include medium() {
     min-width: fit-content;
   }
@@ -119,12 +118,12 @@
       position: inherit;
       background: $nav-secondary;
       border-radius: 50%;
-      transition: all 1s ease-in-out;
+      transition: all .5s ease-in-out;
       transition-delay: 0.5s;
       animation: fadeInIcons 1.5s;      
       &:hover {
         scale: 1.1;
-        transition: 0.5s ease-in-out;
+        transition: .25s ease-in-out;
         transition-delay: 0s;
         width: 5rem;
         height: 5rem;

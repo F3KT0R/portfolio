@@ -18,8 +18,14 @@
       margin-left: 2.5rem;
       flex-wrap: wrap;
       cursor: pointer;
+      transition: all .25s ease-in-out;
       &:last-child {
         margin-right: 6rem;
+      }
+
+      &:hover {
+        scale: 1.2;
+        transition: all .25s ease-in-out;
       }
     }
   }
