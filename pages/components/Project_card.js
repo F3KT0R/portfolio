@@ -2,12 +2,12 @@ import React from 'react';
 import Image from 'next/future/image';
 import styles from '../../styles/modules/Project.module.scss';
 
-function Project_card({title, technologies, poster, link, desc}) {
+function Project_card({title, technologies, poster, link, github, desc}) {
   return (
     <div className={styles.wrapper}>
         <span>&lt;div&gt;</span>
 
-        <a href={link} target='_blank' rel="noopener noreferrer"><h1 className={styles.title}>
+        <a href={github} target='_blank' rel="noopener noreferrer"><h1 className={styles.title}>
             {title}
         </h1></a>
         <a href={link} target='_blank' rel="noopener noreferrer"><Image 

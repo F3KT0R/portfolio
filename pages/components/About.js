@@ -34,7 +34,7 @@ function About() {
         </div></a>
         <div className={styles.cv}>
           <span>&lt;button&gt;</span><br /><br /><br />
-          <a href={'https://drive.google.com/uc?export=download&id=1RSK8hkLff09469JrWYunA7riM3rHUj7g'}><button>Curriculum Vitae</button></a>
+          <a href={'https://drive.google.com/uc?export=download&id=1B73O5-NzOcpl5Ax7KE7_o2yDdLKDghO4'}><button>Curriculum Vitae</button></a>
           <br /><br /><span>&lt;/button&gt;</span>
         </div>
       </div>    
