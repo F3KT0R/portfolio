@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/future/image';
-import {DiCss3, DiHtml5, DiReact, DiJavascript, DiSass, DiScrum, DiVisualstudio, DiPhotoshop, DiNpm, DiJira, DiGoogleDrive, DiGithubBadge, DiChrome} from 'react-icons/di';
-import {SiNetlify} from 'react-icons/si';
+import 
+  { DiCss3, DiHtml5, DiReact, DiJavascript, DiSass, DiScrum, DiVisualstudio, DiPhotoshop, DiNpm, DiJira, DiGoogleDrive, DiGithubBadge, DiChrome } 
+  from 'react-icons/di';
+import { SiNetlify, SiNextdotjs, SiTailwindcss, SiWebpack, SiYarn } from 'react-icons/si';
 import portrait from '../../public/OPT_3084.png';
 import styles from '../../styles/modules/Main.module.scss';
 
@@ -19,7 +21,7 @@ function Main() {
       let circle = circleElements[i];
       angle += dangle;
       circle.style.transform = `rotate(${angle}deg) translate(${dangle /
-        1.5}em) rotate(-${angle}deg)`;
+        1.2}em) rotate(-${angle}deg)`;
     }
   }, []);
   
@@ -35,20 +37,24 @@ function Main() {
         />
 
         <div className={styles.circlegraph} ref={graph}>
-          <DiHtml5 className={styles.circle}/>
-          <DiCss3 className={styles.circle}/>
-          <DiSass className={styles.circle}/>
-          <DiJavascript className={styles.circle}/>
-          <DiReact className={styles.circle}/>
-          <DiScrum className={styles.circle}/>
-          <DiVisualstudio className={styles.circle}/>
-          <DiPhotoshop className={styles.circle}/>
-          <DiNpm className={styles.circle}/>
-          <DiJira className={styles.circle}/>
-          <DiGoogleDrive className={styles.circle}/>
-          <DiGithubBadge className={styles.circle}/>
-          <DiChrome className={styles.circle}/>
-          <SiNetlify className={styles.circle}/>
+          <DiHtml5 data-title='HTML5' className={styles.circle}/>
+          <DiCss3 data-title='CSS3' className={styles.circle}/>
+          <DiSass data-title='Sass' className={styles.circle}/>
+          <SiTailwindcss data-title='TailwindCSS' className={styles.circle}/>
+          <DiJavascript data-title='JavaScript' className={styles.circle}/>
+          <DiReact data-title='React.js' className={styles.circle}/>
+          <SiNextdotjs data-title='Next.js' className={styles.circle}/>
+          <SiWebpack data-title='Webpack' className={styles.circle}/>
+          <DiScrum data-title='Scrum' className={styles.circle}/>
+          <DiVisualstudio data-title='Visual Studio Code' className={styles.circle}/>
+          <DiPhotoshop data-title='Adobe Photoshop' className={styles.circle}/>
+          <DiNpm data-title='Node Package Manager' className={styles.circle}/>
+          <SiYarn data-title='Yarn Package Manager' className={styles.circle}/>
+          <DiJira data-title='Jira' className={styles.circle}/>
+          <DiGoogleDrive data-title='Google Drive' className={styles.circle}/>
+          <DiGithubBadge data-title='GitHub' className={styles.circle}/>
+          <DiChrome data-title='Google Chrome' className={styles.circle}/>
+          <SiNetlify data-title='Netlify' className={styles.circle}/>
         </div>
       </div>
       <div className={styles.text}>

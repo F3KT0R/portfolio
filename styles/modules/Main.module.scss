@@ -128,6 +128,12 @@
         width: 5rem;
         height: 5rem;
       }
+      &[data-title]:hover::after {
+        content: attr(data-title);
+        position: absolute;
+        top: -100%;
+        left: 0;
+      }
     }
   }
 }
