@@ -15,9 +15,9 @@ function Project_card({title, technologies, poster, link, github, desc}) {
           alt={`Poster of ${title} project`}
           className={styles.image}
         /></a>
-        <div className={styles.technologies}>{technologies != undefined ? technologies.map((line, idx) => <p key={idx}>{line}</p>) : ''}</div>
+        <div className={styles.technologies}>{technologies != undefined ? technologies.map((item, idx) => <p key={idx}>{item}</p>) : ''}</div>
         
-        <div className={styles.desc}>{desc != undefined ? desc.split('\n').map((line, idx) => <p key={idx}>{line}</p>) : ''}</div>
+        <div className={styles.desc}>{desc != undefined ? desc.map((item, idx) => <p key={idx}>{item}</p>) : ''}</div>
         <span>&lt;/div&gt;</span>
 
     </div>
