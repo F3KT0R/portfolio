@@ -12,9 +12,10 @@ function Work() {
       <span>&lt;/h1&gt;</span><br />
       
       <div className={styles.container}>
-      {experience_data.map(({title, year, role, address, link, description}) => {
+      {experience_data.map(({title, year, role, address, link, description}, index) => {
         return (
           <Card 
+            key={index}
             title={title} 
             year={year}
             role={role} 

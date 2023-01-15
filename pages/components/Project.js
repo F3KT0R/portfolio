@@ -13,9 +13,10 @@ function Project() {
       <span>&lt;/h1&gt;</span><br />
       
       <div className={styles.container}>
-        {projects_data.map(({title, technologies, poster, link, github, description}) => {
+        {projects_data.map(({title, technologies, poster, link, github, description}, index) => {
           return(
             <Card 
+              key={index}
               title={title}
               technologies={technologies}
               poster={poster} 
