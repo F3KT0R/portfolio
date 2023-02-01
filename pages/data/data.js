@@ -1,5 +1,25 @@
 export const projects_data = [
   {
+    title: 'Watchflix - v2.0',
+    technologies: [
+      'React.js',
+      'TailwindCSS',
+      'React Components',
+      'Web Design',
+      'TMDB API',
+    ],
+    poster: require('../../public/watchflix2.0.png'),
+    link: 'https://watchflix-app.netlify.app/',
+    github: 'https://github.com/F3KT0R/watchflix-2.0',
+    description: [
+      'It is a reworked version of my original Watcflix PWA.',
+      'Created to compare the difference in my knowledge regarding web development and React',
+      'Created my own design using Adobe Photoshop.',
+      "It's hosted on Netlify.",
+      'Using axios for data fetching, Custom Hooks for different functions, Callback functions, Component Based Design',
+    ],
+  },
+  {
     title: 'Portfolio Website',
     technologies: [
       'Next.js',
