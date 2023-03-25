@@ -1,0 +1,54 @@
+[
+  {
+    "title": "PaySpot d.o.o.",
+    "year": "20th February 2023 - Present",
+    "role": "Junior Software Developer",
+    "address": "Serbia, Novi Sad, Branimira Ćosića Street 2",
+    "link": "https://www.payspot.rs/",
+    "description": [
+      "Full-stack development on the new application",
+      "Agile methodology",
+      "Angular front-end with C# ASP.NET MVC back-end",
+      "Design & Development"
+    ]
+  },
+  {
+    "title": "Zeto EU Kft.",
+    "year": "1st October 2021 - 1st September 2022",
+    "role": "Quality Assurance Engineer",
+    "address": "Hungary, Szeged, Back Bernát Street 6",
+    "link": "https://zeto-inc.com/",
+    "description": [
+      "Internship for 4 months as a: Quality Assurance Intern",
+      "Creating Custom Functions in Google Apps Script",
+      "Testing and Validation of Custom Functions",
+      "Key Performance Indicators Manager"
+    ]
+  },
+  {
+    "title": "Ovation BBDO",
+    "year": "1st July 2020 - 1st June 2022",
+    "role": "Translator / Social Media Manager",
+    "address": "Serbia, Belgrade Velisava Vulovića Street 16",
+    "link": "https://ovation.rs/en/",
+    "description": [
+      "Translation of advertisement content from English to Hungarian",
+      "Community Management",
+      "Writing reports and summing up monthly metrics",
+      "Technical Support"
+    ]
+  },
+  {
+    "title": "Bemeding",
+    "year": "August 2020 & August 2021",
+    "role": "Webshop Administrator",
+    "address": "Serbia, Novi Bečej, Maršala Tita Street 10",
+    "link": "https://www.webapoteka.rs/",
+    "description": [
+      "Managing the webshop",
+      "Fulfilling orders",
+      "Packaging and sending orders",
+      "Customer Support"
+    ]
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "title": "Watchflix - v2.0",
+    "technologies": [
+      "React.js",
+      "TailwindCSS",
+      "React Components",
+      "Web Design",
+      "TMDB API"
+    ],
+    "poster": "/images/watchflix2.0.png",
+    "link": "https://watchflix-app.netlify.app/",
+    "github": "https://github.com/F3KT0R/watchflix-2.0",
+    "description": [
+      "It is a reworked version of my original Watcflix PWA.",
+      "Created to compare the difference in my knowledge regarding web development and React",
+      "Created my own design using Adobe Photoshop.",
+      "It's hosted on Netlify.",
+      "Using axios for data fetching, Custom Hooks for different functions, Callback functions, Component Based Design"
+    ]
+  },
+  {
+    "title": "Portfolio Website",
+    "technologies": [
+      "Next.js",
+      "Sass",
+      "React Components",
+      "Web Design",
+      "Netlify"
+    ],
+    "poster": "/images/portfolio.png",
+    "link": "https://tibor-balint.netlify.app",
+    "github": "https://github.com/F3KT0R/portfolio",
+    "description": [
+      "It's obviously this website which is a representation of my work.",
+      "This is the first time I've used Next.js.",
+      "Created my own design using Adobe Photoshop.",
+      "It's hosted on Netlify.",
+      "Constantly being updated as I create more and more projects and learn new things."
+    ]
+  },
+  {
+    "title": "Income Tax Calculator",
+    "technologies": [
+      "React.js",
+      "TailwindCSS",
+      "Webpack",
+      "Web Design",
+      "Netlify"
+    ],
+    "poster": "/images/tax-calculator.png",
+    "link": "https://net-income.netlify.app",
+    "github": "https://github.com/F3KT0R/tax-calculator",
+    "description": [
+      "This was the first project that I've created from scratch without CRA.",
+      "It is a Webpack bundled project using Yarn as a package manager hosted on Netlify.",
+      "Adding my own small local JSON data and creating custom utility components.",
+      "The design of the site was influenced by a template project, but the current look is uniquely designed by me in Adobe Photoshop.",
+      "This is also the first project that I've used TailwindCSS with."
+    ]
+  },
+  {
+    "title": "Watchflix",
+    "technologies": [
+      "React.js",
+      "React Hooks",
+      "Components",
+      "TMDB API",
+      "Netlify"
+    ],
+    "poster": "/images/watchflix.png",
+    "link": "https://watchflix-old.netlify.app/",
+    "github": "https://github.com/F3KT0R/watchflix",
+    "description": [
+      "This was my Graduation Thesis at the University of Szeged.",
+      "It is a Progressive Web Application developed by me in ReactJS.",
+      "Uses data from The Movie Database's API service.",
+      "It's the first project that I've hosted dinamically on Netlify.",
+      "It is installable and works offline, hence it performs local caching."
+    ]
+  },
+  {
+    "title": "Medieval Fort",
+    "technologies": ["HTML5", "CSS3", "ThreeJS", "Blender", "Netlify"],
+    "poster": "/images/medieval_fort.png",
+    "link": "https://middleagesfort.netlify.app",
+    "github": "https://github.com/F3KT0R/middleagefort",
+    "description": [
+      "This was a project I've created for a course at University.",
+      "The main 3D elements were created in Blender.",
+      "The rest of the work was done in ThreeJS.",
+      "It has been hosted on Netlify so it is made accessible to anyone.",
+      "It has keyboard commands attached to it, but the explanation is written in Hungarian."
+    ]
+  }
+]
