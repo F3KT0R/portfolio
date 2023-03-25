@@ -97,6 +97,19 @@ export const projects_data = [
 
 export const experience_data = [
   {
+    title: 'PaySpot d.o.o.',
+    year: '20th February 2023 - Present',
+    role: 'Junior Software Developer',
+    address: 'Serbia, Novi Sad, Branimira Ćosića Street 2',
+    link: 'https://www.payspot.rs/',
+    description: [
+      'Full-stack development on the new application',
+      'Agile methodology',
+      'Angular front-end with C# ASP.NET MVC back-end',
+      'Design & Development',
+    ],
+  },
+  {
     title: 'Zeto EU Kft.',
     year: '1st October 2021 - 1st September 2022',
     role: 'Quality Assurance Engineer',
