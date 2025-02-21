@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/future/image';
+import Image from 'next/image ';
 import styles from '../../styles/modules/Nav.module.scss';
 import logo_white from '../../public/logo-white.png';
 
@@ -8,13 +8,13 @@ function Nav() {
        return (
         <>
             <nav className={styles.nav}>
-                <Image 
+                <Image
                     src={logo_white}
                     alt='F3'
                     className={styles.image}
                     layout={'raw'}
                 />
-                
+
                 <ul className={styles.navlist}>
                     <Link href='/#home'><li>Home</li></Link>
                     <Link href='/#about'><li>About Me</li></Link>
