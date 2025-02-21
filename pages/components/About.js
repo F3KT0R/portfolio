@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../../styles/modules/About.module.scss';
 import Image from 'next/future/image';
 import optica from '../../public/optica.png';
+import Link from 'next/link';
 
 function About() {
   return (
@@ -35,9 +36,9 @@ function About() {
         </div></a>
         <div className={styles.cv}>
           <span>&lt;button&gt;</span><br /><br /><br />
-          <a href="/api/download-cv">
+          <Link href="/api/download-cv">
             <button>Curriculum Vitae</button>
-          </a>
+          </Link>
           <br /><br /><span>&lt;/button&gt;</span>
         </div>
 
