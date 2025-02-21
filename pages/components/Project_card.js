@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image ';
+import Image from 'next/image';
 import styles from '../../styles/modules/Project.module.scss';
 
 function Project_card({ title, technologies, poster, link, github, desc }) {

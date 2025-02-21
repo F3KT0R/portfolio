@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../styles/modules/About.module.scss';
-import Image from 'next/image ';
+import Image from 'next/image';
 import optica from '../../public/optica.png';
 import Link from 'next/link';
 

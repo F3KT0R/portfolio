@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image ';
+import Image from 'next/image';
 import styles from '../../styles/modules/Nav.module.scss';
 import logo_white from '../../public/logo-white.png';
 

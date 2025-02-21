@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Image from 'next/image ';
+import Image from 'next/image';
 import * as icon from '../utils/react-icons.js'
 import portrait from '../../public/OPT_3084.png';
 import styles from '../../styles/modules/Main.module.scss';
