@@ -1,28 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/future/image';
-import {
-  DiCss3,
-  DiHtml5,
-  DiReact,
-  DiJavascript,
-  DiSass,
-  DiScrum,
-  DiVisualstudio,
-  DiPhotoshop,
-  DiNpm,
-  DiJira,
-  DiGoogleDrive,
-  DiGithubBadge,
-  DiChrome,
-  DiAngularSimple,
-} from 'react-icons/di';
-import {
-  SiNetlify,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiWebpack,
-  SiYarn,
-} from 'react-icons/si';
+import * as icon from '../utils/react-icons.ts'
 import portrait from '../../public/OPT_3084.png';
 import styles from '../../styles/modules/Main.module.scss';
 
@@ -57,28 +35,28 @@ function Main() {
         />
 
         <div className={styles.circlegraph} ref={graph}>
-          <DiHtml5 data-title='HTML5' className={styles.circle} />
-          <DiCss3 data-title='CSS3' className={styles.circle} />
-          <DiSass data-title='Sass' className={styles.circle} />
-          <SiTailwindcss data-title='TailwindCSS' className={styles.circle} />
-          <DiJavascript data-title='JavaScript' className={styles.circle} />
-          <DiReact data-title='React.js' className={styles.circle} />
-          <DiAngularSimple data-title='Angular.js' className={styles.circle} />
-          <SiNextdotjs data-title='Next.js' className={styles.circle} />
-          <SiWebpack data-title='Webpack' className={styles.circle} />
-          <DiScrum data-title='Scrum' className={styles.circle} />
-          <DiVisualstudio
+          <icon.DiHtml5 data-title='HTML5' className={styles.circle} />
+          <icon.DiCss3 data-title='CSS3' className={styles.circle} />
+          <icon.DiSass data-title='Sass' className={styles.circle} />
+          <icon.SiTailwindcss data-title='TailwindCSS' className={styles.circle} />
+          <icon.DiJavascript data-title='JavaScript' className={styles.circle} />
+          <icon.DiReact data-title='React.js' className={styles.circle} />
+          <icon.DiAngularSimple data-title='Angular.js' className={styles.circle} />
+          <icon.SiNextdotjs data-title='Next.js' className={styles.circle} />
+          <icon.SiWebpack data-title='Webpack' className={styles.circle} />
+          <icon.DiScrum data-title='Scrum' className={styles.circle} />
+          <icon.DiVisualstudio
             data-title='Visual Studio Code'
             className={styles.circle}
           />
-          <DiPhotoshop data-title='Adobe Photoshop' className={styles.circle} />
-          <DiNpm data-title='Node Package Manager' className={styles.circle} />
-          <SiYarn data-title='Yarn Package Manager' className={styles.circle} />
-          <DiJira data-title='Jira' className={styles.circle} />
-          <DiGoogleDrive data-title='Google Drive' className={styles.circle} />
-          <DiGithubBadge data-title='GitHub' className={styles.circle} />
-          <DiChrome data-title='Google Chrome' className={styles.circle} />
-          <SiNetlify data-title='Netlify' className={styles.circle} />
+          <icon.DiPhotoshop data-title='Adobe Photoshop' className={styles.circle} />
+          <icon.DiNpm data-title='Node Package Manager' className={styles.circle} />
+          <icon.SiYarn data-title='Yarn Package Manager' className={styles.circle} />
+          <icon.DiJira data-title='Jira' className={styles.circle} />
+          <icon.DiGoogleDrive data-title='Google Drive' className={styles.circle} />
+          <icon.DiGithubBadge data-title='GitHub' className={styles.circle} />
+          <icon.DiChrome data-title='Google Chrome' className={styles.circle} />
+          <icon.SiNetlify data-title='Netlify' className={styles.circle} />
         </div>
       </div>
       <div className={styles.text}>
@@ -96,9 +74,9 @@ function Main() {
           &nbsp;&nbsp;
           <div className={styles.rotate}>
             I'm &nbsp;<span style={{ '--d': '0s' }}>Tibor</span>
-            <span style={{ '--d': '4s' }}>a Junior Web Developer</span>
-            <span style={{ '--d': '8s' }}>a Junior Software Developer</span>
-            <span style={{ '--d': '12s' }}>a Quality Assurance Engineer</span>
+            <span style={{ '--d': '4s' }}>a Medior Frontend Developer</span>
+            <span style={{ '--d': '8s' }}>a Funny Guy</span>
+            <span style={{ '--d': '12s' }}>a Creative Individual</span>
           </div>
           <br />
           &nbsp;&nbsp; and welcome to my story...

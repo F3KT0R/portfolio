@@ -2,14 +2,14 @@
   {
     "title": "PaySpot d.o.o.",
     "year": "20th February 2023 - Present",
-    "role": "Junior Software Developer",
+    "role": "Medior Software Developer",
     "address": "Serbia, Novi Sad, Branimira Ćosića Street 2",
     "link": "https://www.payspot.rs/",
     "description": [
-      "Full-stack development on the new application",
-      "Agile methodology",
-      "Angular front-end with C# ASP.NET MVC back-end",
-      "Design & Development"
+      "Software architecture",
+      "Reusable component development",
+      "Mentoring",
+      "Tech-stack: Angular, C# ASP.NET MVC and DB2"
     ]
   },
   {
