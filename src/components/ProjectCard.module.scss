@@ -1,0 +1,76 @@
+.card {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-1) 78%, transparent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: radial-gradient(500px 200px at 20% 0%, rgba(255, 255, 255, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent);
+}
+
+.body {
+  padding: 1.1rem 1.1rem 1.2rem;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.desc {
+  margin: 0.55rem 0 0;
+}
+
+.meta {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  color: var(--text-1);
+  font-size: 0.85rem;
+}
+
+.actions {
+  margin-top: 0.95rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.action {
+  border: 1px solid var(--border);
+  background: transparent;
+  border-radius: 12px;
+  padding: 0.45rem 0.75rem;
+  color: var(--text-0);
+  font-weight: 600;
+}
+
+.action:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+}

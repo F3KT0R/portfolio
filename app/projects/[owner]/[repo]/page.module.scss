@@ -1,0 +1,122 @@
+.page {
+  width: min(900px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  padding-block: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+.header {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.back {
+  color: var(--text-1);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.back:hover {
+  color: var(--text-0);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  margin: 0;
+  color: var(--text-1);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  color: var(--text-1);
+  font-size: 0.9rem;
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 1.5rem 0 2rem;
+}
+
+.content {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg-1) 78%, transparent);
+  box-shadow: var(--shadow);
+  padding: clamp(1.1rem, 2vw, 1.8rem);
+}
+
+.content :global(h1),
+.content :global(h2),
+.content :global(h3) {
+  scroll-margin-top: 6rem;
+}
+
+.content :global(h2) {
+  margin-top: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.content :global(a) {
+  color: var(--accent);
+}
+
+.content :global(pre) {
+  overflow: auto;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-0) 55%, transparent);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+}
+
+.content :global(code) {
+  background: color-mix(in srgb, var(--bg-0) 45%, transparent);
+  border: 1px solid var(--border);
+  padding: 0.12rem 0.35rem;
+  border-radius: 8px;
+}
+
+.content :global(pre code) {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.action {
+  border: 1px solid var(--border);
+  background: transparent;
+  border-radius: 12px;
+  padding: 0.55rem 0.85rem;
+  color: var(--text-0);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.action:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+}

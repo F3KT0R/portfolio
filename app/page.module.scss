@@ -1,0 +1,304 @@
+.hero {
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.heroGrid {
+  width: min(1100px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-1) 75%, transparent);
+  color: var(--text-1);
+  font-size: 0.9rem;
+}
+
+.h1 {
+  margin: 0.9rem 0 0;
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin: 1rem 0 0;
+  max-width: 62ch;
+  font-size: 1.05rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.primary {
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, var(--border));
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 55%, transparent), transparent 70%);
+  border-radius: 14px;
+  padding: 0.65rem 1rem;
+  font-weight: 800;
+}
+
+.secondary {
+  border: 1px solid var(--border);
+  background: transparent;
+  border-radius: 14px;
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+.primary:hover,
+.secondary:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg-1) 78%, transparent);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.avatar {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.profileName {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.profileRole {
+  margin: 0.25rem 0 0;
+  color: var(--text-1);
+}
+
+.signal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.metric {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem;
+  background: color-mix(in srgb, var(--bg-0) 35%, transparent);
+}
+
+.metricTitle {
+  margin: 0;
+  font-weight: 800;
+}
+
+.metricText {
+  margin: 0.25rem 0 0;
+  color: var(--text-1);
+}
+
+.section {
+  width: min(1100px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.currentGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .currentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.currentCard {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg-1) 78%, transparent);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.currentTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.currentRole {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.currentCompany {
+  margin: 0.35rem 0 0;
+  color: var(--text-1);
+}
+
+.currentCompany a {
+  color: var(--text-0);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.currentCompany a:hover {
+  border-bottom-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.currentMeta {
+  color: var(--text-1);
+}
+
+.currentLink {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.5rem 0.75rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--text-0);
+}
+
+.currentLink:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+}
+
+.currentSummary {
+  margin: 0.95rem 0 0;
+  color: var(--text-1);
+}
+
+.currentTags {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.currentPill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  color: var(--text-1);
+  font-size: 0.85rem;
+  background: color-mix(in srgb, var(--bg-0) 30%, transparent);
+}
+
+.currentImpact {
+  margin-top: 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 18%, transparent),
+    transparent 60%
+  );
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem;
+}
+
+.currentImpactTitle {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.currentImpactList {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--text-1);
+}
+
+.currentImpactList li {
+  margin: 0.35rem 0;
+}
+
+.currentList {
+  margin: 0.95rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--text-1);
+}
+
+.currentList li {
+  margin: 0.35rem 0;
+}
+
+.currentSide {
+  display: grid;
+  gap: 1.2rem;
+  align-content: start;
+}
+
+.currentSideText {
+  margin: 0.4rem 0 0;
+  color: var(--text-1);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.featuredEmpty {
+  grid-column: 1 / -1;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg-1) 78%, transparent);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.1rem;
+}
+
+.featuredEmptyText {
+  margin: 0;
+  color: var(--text-1);
+}
+
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

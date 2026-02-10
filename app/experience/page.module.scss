@@ -1,0 +1,125 @@
+.page {
+  width: min(900px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  padding-block: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+.timeline {
+  display: grid;
+  gap: 1rem;
+}
+
+.item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg-1) 78%, transparent);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.2rem;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.company {
+  color: var(--text-0);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.company:hover {
+  border-bottom-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.when {
+  color: var(--text-1);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  font-size: 0.9rem;
+  background: color-mix(in srgb, var(--bg-0) 35%, transparent);
+}
+
+.subhead {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.role {
+  font-weight: 800;
+}
+
+.dot {
+  color: var(--text-1);
+}
+
+.summary {
+  margin: 0.75rem 0 0;
+  color: var(--text-1);
+}
+
+.tags {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  color: var(--text-1);
+  font-size: 0.85rem;
+  background: color-mix(in srgb, var(--bg-0) 30%, transparent);
+}
+
+.impact {
+  margin-top: 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 18%, transparent),
+    transparent 60%
+  );
+  border-radius: 14px;
+  padding: 0.9rem 0.95rem;
+}
+
+.impactTitle {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.impactList {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--text-1);
+}
+
+.impactList li {
+  margin: 0.35rem 0;
+}
+
+.meta {
+  color: var(--text-1);
+}
+
+.list {
+  margin: 0.9rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--text-1);
+}

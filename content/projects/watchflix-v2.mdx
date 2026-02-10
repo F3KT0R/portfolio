@@ -1,0 +1,35 @@
+---
+title: Watchflix — v2.0
+description: A redesign + rebuild focused on UI polish, component reuse, and a cleaner data layer.
+date: 2025-10-01
+repo: F3KT0R/watchflix-2.0
+live: https://watchflix-app.netlify.app/
+coverImage: /images/watchflix2.0.png
+tags:
+  - React
+  - Tailwind
+  - API
+  - UI
+featured: true
+---
+
+## Problem
+The original app shipped fast, but iteration became harder: UI consistency drifted and the data-fetching flow started to sprawl.
+
+## Constraints
+- Keep deployment on Netlify.
+- Use TMDB as the data source.
+- Make the UI feel intentional and “product-like”, not a demo.
+
+## Approach
+- Reworked UI components around clear responsibilities.
+- Consolidated fetch logic into reusable hooks.
+- Introduced stricter component structure to prevent style drift.
+
+## Results
+- Cleaner UI and more consistent interaction patterns.
+- Easier to add new views without duplicating logic.
+
+## What I’d do next
+- Add caching and request deduplication.
+- Add e2e tests around search and detail pages.

@@ -1,0 +1,66 @@
+[
+  {
+    "title": "PaySpot d.o.o.",
+    "year": "20th February 2023 - Present",
+    "role": "Medior Software Developer",
+    "address": "Serbia, Novi Sad, Branimira Ćosića Street 2",
+    "link": "https://www.payspot.rs/",
+    "summary": "UI engineering + architecture on a production fintech app; internal tooling; mentoring.",
+    "tags": [
+      "Angular",
+      "TypeScript",
+      "Node.js",
+      "C#",
+      "ASP.NET MVC",
+      "DB2",
+      "Scrum",
+      "Mentoring",
+      "PCI DSS"
+    ],
+    "impact": [
+      "Improved delivery visibility by building a Scrum reporting workflow used in day-to-day planning",
+      "Raised UI quality and consistency by leading a full styling refresh and reusable component approach",
+      "Reduced friction for teams by co-building an internal agile tracking web app with end-to-end workflow support"
+    ],
+    "highlights": [
+      "Owned core features end-to-end and contributed to architecture decisions across the app",
+      "Helped kickstart a greenfield company app from (almost) day 1",
+      "Mentored interns/juniors, onboarded teammates, and raised UI/code quality bar",
+      "Built a Scrum reporting system to support delivery visibility and process improvements",
+      "Co-developed an internal agile tracking web app (Angular/TypeScript + Node.js) with full workflow support",
+      "Led a full UI refresh: layout, styling, component reusability, and consistency",
+      "Production + test bug triage/fixes with real-world incident handling",
+      "Worked mainly in Angular/TS + C# ASP.NET MVC; integrated with DB2 procedures (consumed/maintained, not primary DB dev)"
+    ]
+  },
+  {
+    "title": "Zeto EU Kft.",
+    "year": "1st October 2021 - 1st September 2022",
+    "role": "Quality Assurance Engineer",
+    "address": "Hungary, Szeged, Back Bernát Street 6",
+    "link": "https://zeto-inc.com/",
+    "summary": "QA + automation-adjacent scripting work supporting reporting and validation.",
+    "tags": ["QA", "Google Apps Script", "Validation", "KPIs"],
+    "highlights": [
+      "Internship for 4 months as a: Quality Assurance Intern",
+      "Creating Custom Functions in Google Apps Script",
+      "Testing and Validation of Custom Functions",
+      "Key Performance Indicators Manager"
+    ]
+  },
+  {
+    "title": "Ovation BBDO",
+    "year": "1st July 2020 - 1st June 2022",
+    "role": "Translator / Social Media Manager",
+    "address": "Serbia, Belgrade Velisava Vulovića Street 16",
+    "link": "https://ovation.rs/en/",
+    "summary": "Language + community work with consistent reporting and support responsibilities.",
+    "tags": ["Translation", "Community", "Reporting", "Support"],
+    "highlights": [
+      "Translation of advertisement content from English to Hungarian",
+      "Community Management",
+      "Writing reports and summing up monthly metrics",
+      "Technical Support"
+    ]
+  }
+]
