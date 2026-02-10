@@ -1,5 +1,6 @@
 import styles from './page.module.scss'
 import { SectionHeader } from '@/components/SectionHeader'
+import { ContactForm } from './ContactForm'
 
 export default function ContactPage() {
   return (
@@ -39,39 +40,7 @@ export default function ContactPage() {
 
         <div className={styles.card}>
           <h3>Send a message</h3>
-          <form
-            className={styles.form}
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <p style={{ display: 'none' }}>
-              <label>
-                Don’t fill this out: <input name="bot-field" />
-              </label>
-            </p>
-
-            <label className={styles.label}>
-              Name
-              <input className={styles.input} name="name" required />
-            </label>
-
-            <label className={styles.label}>
-              Email
-              <input className={styles.input} name="email" type="email" required />
-            </label>
-
-            <label className={styles.label}>
-              Message
-              <textarea className={styles.textarea} name="message" required />
-            </label>
-
-            <button className={styles.button} type="submit">
-              Send
-            </button>
-          </form>
+          <ContactForm />
         </div>
       </div>
     </div>

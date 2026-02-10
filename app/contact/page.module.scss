@@ -65,6 +65,11 @@
   border-color: color-mix(in srgb, var(--accent) 70%, var(--border));
 }
 
+.notice {
+  margin: 0.25rem 0 0;
+  color: var(--text-1);
+}
+
 .links {
   display: grid;
   gap: 0.6rem;
