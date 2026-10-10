@@ -1,4 +1,5 @@
 export { AttributesPanel } from './AttributesPanel'
 export { IdentityCard } from './IdentityCard'
 export { LoadoutPanel } from './LoadoutPanel'
+export { LookingForPanel } from './LookingForPanel'
 export { GuildPanel, LanguagesPanel, TraitsPanel } from './ProfilePanels'

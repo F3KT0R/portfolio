@@ -4,6 +4,7 @@ import {
   chronicle,
   getQuestsByKind,
   getSkill,
+  playstyle,
   rarityMeaning,
   skillIds,
   skills,
@@ -55,6 +56,27 @@ export function ResumeView() {
         {character.pitch.map((line) => (
           <p key={line}>{line}</p>
         ))}
+      </section>
+
+      <section className={styles.section} aria-labelledby="tldr-looking">
+        <h2 id="tldr-looking">Looking for</h2>
+        <ul className={styles.facts}>
+          <li>{character.lookingFor.engagement}</li>
+          <li>{character.lookingFor.workplace}</li>
+          <li>{character.lookingFor.relocation}</li>
+          <li>{character.lookingFor.start}</li>
+        </ul>
+      </section>
+
+      <section className={styles.section} aria-labelledby="tldr-how">
+        <h2 id="tldr-how">How I work</h2>
+        <ul className={styles.bullets}>
+          {playstyle.map((p) => (
+            <li key={p.id}>
+              <strong>{p.title}.</strong> {p.inMyWords}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className={styles.section} aria-labelledby="tldr-stack">

@@ -32,6 +32,13 @@ export function buildCommands(): Command[] {
       action: { kind: 'navigate' as const, href: n.href },
     })),
     {
+      id: 'nav-playstyle',
+      group: 'Go to',
+      label: 'Playstyle — how I work',
+      keywords: 'principles process review testing ai working style',
+      action: { kind: 'navigate', href: routes.playstyle },
+    },
+    {
       id: 'nav-tldr',
       group: 'Go to',
       label: 'TL;DR — the one-page résumé',

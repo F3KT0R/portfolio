@@ -21,4 +21,6 @@ export const gloss = {
   tradeoffs: 'decisions & their costs',
   codeTour: 'the files worth reading',
   party: 'testimonials',
+  playstyle: 'how I work',
+  lookingFor: 'work I’m open to',
 } as const

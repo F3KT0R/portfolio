@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     ...primaryNav.map((n) => n.href),
     routes.tldr,
+    routes.playstyle,
     ...quests.map((q) => routes.quest(q.slug)),
   ]
   return paths.map((path) => ({ url: new URL(path, site.url).toString() }))

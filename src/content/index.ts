@@ -8,9 +8,10 @@ import { chronicle } from './chronicle'
 import { quests } from './quests'
 import type { Quest, QuestKind, Skill, SkillBranch } from './schema'
 import { skillIds, skills, type SkillId } from './skills'
+import { playstyle } from './playstyle'
 import { testimonials } from './testimonials'
 
-export { achievements, character, chronicle, quests, skills, skillIds, testimonials }
+export { achievements, character, chronicle, playstyle, quests, skills, skillIds, testimonials }
 export type { SkillId }
 export type { QuestSlug } from './quests'
 export {
@@ -24,6 +25,7 @@ export {
   type Character,
   type ChronicleEntry,
   type Condition,
+  type Playstyle,
   type Quest,
   type QuestKind,
   type QuestStatus,

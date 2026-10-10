@@ -118,3 +118,38 @@ test.describe('screens', () => {
     await expect(slider).toHaveValue('51')
   })
 })
+
+test.describe('call requests', () => {
+  test('the sheet button opens the call option, which asks for days and a time', async ({
+    page,
+  }) => {
+    let body = ''
+    await page.route('/__forms.html', async (route) => {
+      body = route.request().postData() ?? ''
+      await route.fulfill({ status: 200, body: 'ok' })
+    })
+    await page.goto('/')
+    await page.getByRole('link', { name: 'Request a 15-minute call' }).click()
+    await expect(page).toHaveURL(/\/recruit#call$/)
+    await expect(page.getByLabel('A quick call')).toBeChecked()
+
+    await page.getByLabel('Name').fill('Ada Lovelace')
+    await page.getByLabel('E-mail').fill('ada@example.com')
+    await page
+      .getByLabel('What would you like to talk about?')
+      .fill('A three-month frontend contract, remote.')
+    await page.getByRole('button', { name: 'Send the raven' }).click()
+    await expect(page.getByText('Pick at least one day that suits you.')).toBeVisible()
+    await expect(page.getByText('Pick a time of day.')).toBeVisible()
+
+    await page.getByLabel('Tue').check()
+    await page.getByLabel('Thu').check()
+    await page.getByLabel(/^Afternoon/).check()
+    await page.getByRole('button', { name: 'Send the raven' }).click()
+    await expect(page.getByText('Party formed.')).toBeVisible()
+    expect(body).toContain('intent=call')
+    expect(body).toContain('callDays=Tue%2CThu')
+    expect(body).toContain('callTime=afternoon')
+    expect(body).not.toContain('day=')
+  })
+})

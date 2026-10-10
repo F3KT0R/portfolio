@@ -26,6 +26,20 @@ describe('validateRecruit', () => {
   })
 })
 
+describe('call requests', () => {
+  it('need days and a time of day', () => {
+    const result = validateRecruit({ ...valid, intent: 'call', callDays: '', callTime: '' })
+    expect(result.ok).toBe(false)
+    if (!result.ok) expect(Object.keys(result.errors).sort()).toEqual(['callDays', 'callTime'])
+  })
+
+  it('accept known weekdays and a window', () => {
+    expect(
+      validateRecruit({ ...valid, intent: 'call', callDays: 'Mon,Thu', callTime: 'morning' }).ok,
+    ).toBe(true)
+  })
+})
+
 describe('Netlify form stub', () => {
   const html = fs.readFileSync(path.join(process.cwd(), 'public', '__forms.html'), 'utf8')
 

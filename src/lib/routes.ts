@@ -14,6 +14,7 @@ export const routes = {
   codex: '/codex',
   recruit: '/recruit',
   tldr: '/tldr',
+  playstyle: '/playstyle',
 } as const satisfies Record<string, Route | ((arg: string) => Route)>
 
 export type StaticRouteKey = {

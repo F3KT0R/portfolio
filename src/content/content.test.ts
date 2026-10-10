@@ -11,6 +11,7 @@ import {
   character,
   chronicle,
   getQuestsUsingSkill,
+  playstyle,
   quests,
   skillIds,
   skills,
@@ -209,5 +210,21 @@ describe('quests for every reader', () => {
 
   it('keep code tours away from private and classified work', () => {
     for (const q of quests) if (!q.links.repo) expect(q.codeTour, q.slug).toEqual([])
+  })
+})
+
+describe('playstyle', () => {
+  const pages = new Set<string>([
+    ...primaryNav.map((n) => n.href),
+    routes.tldr,
+    routes.playstyle,
+    ...quests.map((q) => routes.quest(q.slug)),
+  ])
+
+  it('has unique ids and evidence that points at real pages', () => {
+    expect(duplicates(playstyle.map((p) => p.id))).toEqual([])
+    for (const p of playstyle) {
+      for (const e of p.evidence) expect(pages.has(e.href), `${p.id}: ${e.href}`).toBe(true)
+    }
   })
 })

@@ -1,13 +1,20 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useState, useSyncExternalStore, type FormEvent } from 'react'
 import { emitGameEvent } from '@/lib/game-events'
 import { site } from '@/lib/site'
 import { Button, PixelIcon } from '@/ui'
+import { callDays, callWindows, HOME_TIME_ZONE, windowIn } from './call-times'
 import { FORM_NAME, HONEYPOT, intents, validateRecruit, type FieldErrors } from './recruit-schema'
 import styles from './RecruitForm.module.css'
 
 const ENDPOINT = '/__forms.html'
+
+function subscribeToHash(onChange: () => void) {
+  window.addEventListener('hashchange', onChange)
+  return () => window.removeEventListener('hashchange', onChange)
+}
+const readHash = () => window.location.hash
 
 type Status =
   { kind: 'idle' } | { kind: 'sending' } | { kind: 'sent' } | { kind: 'failed'; reason: string }
@@ -20,6 +27,12 @@ type Status =
 export function RecruitForm() {
   const [status, setStatus] = useState<Status>({ kind: 'idle' })
   const [errors, setErrors] = useState<FieldErrors>({})
+  // /recruit#call (the sheet's "Request a call" button) preselects the call option;
+  // the browser scrolls to the form, whose id is "call".
+  const hash = useSyncExternalStore(subscribeToHash, readHash, () => '')
+  const [chosen, setIntent] = useState<string | null>(null)
+  const intent = chosen ?? (hash === '#call' ? 'call' : intents[0].value)
+  const [days, setDays] = useState<string[]>([])
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -39,10 +52,14 @@ export function RecruitForm() {
       const response = await fetch(ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams([...data].map(([k, v]) => [k, String(v)])).toString(),
+        // The day checkboxes are UI only; their joined value travels as callDays.
+        body: new URLSearchParams(
+          [...data].filter(([k]) => k !== 'day').map(([k, v]) => [k, String(v)]),
+        ).toString(),
       })
       if (!response.ok) throw new Error(`The server answered ${response.status}.`)
       form.reset()
+      setDays([])
       setStatus({ kind: 'sent' })
       emitGameEvent('party:recruited')
     } catch (error) {
@@ -68,6 +85,7 @@ export function RecruitForm() {
 
   return (
     <form
+      id="call"
       className={styles.form}
       name={FORM_NAME}
       method="POST"
@@ -90,23 +108,28 @@ export function RecruitForm() {
         aria-describedby={describe('intent')}
       >
         <legend className={styles.label}>What brings you here?</legend>
-        {intents.map((intent, index) => (
-          <label key={intent.value} className={styles.intent}>
+        {intents.map((option) => (
+          <label key={option.value} className={styles.intent}>
             <input
               type="radio"
               name="intent"
-              value={intent.value}
+              value={option.value}
               required
-              defaultChecked={index === 0}
+              checked={intent === option.value}
+              onChange={() => setIntent(option.value)}
             />
             <span className={styles.intentText}>
-              <span className={styles.intentLabel}>{intent.label}</span>
-              <span className={styles.intentHint}>{intent.hint}</span>
+              <span className={styles.intentLabel}>{option.label}</span>
+              <span className={styles.intentHint}>{option.hint}</span>
             </span>
           </label>
         ))}
         <FieldError field="intent" errors={errors} />
       </fieldset>
+
+      {intent === 'call' ? (
+        <CallPreferences days={days} onDays={setDays} errors={errors} describe={describe} />
+      ) : null}
 
       <div className={styles.row}>
         <label className={styles.field}>
@@ -144,7 +167,9 @@ export function RecruitForm() {
       </label>
 
       <label className={styles.field}>
-        <span className={styles.label}>The quest</span>
+        <span className={styles.label}>
+          {intent === 'call' ? 'What would you like to talk about?' : 'The quest'}
+        </span>
         <textarea
           className={styles.textarea}
           name="message"
@@ -179,4 +204,81 @@ function FieldError({ field, errors }: { field: keyof FieldErrors; errors: Field
       {message}
     </span>
   ) : null
+}
+
+/** Weekdays and a time window in Tibor's zone, shown in the visitor's own time too. */
+function CallPreferences({
+  days,
+  onDays,
+  errors,
+  describe,
+}: {
+  days: string[]
+  onDays: (days: string[]) => void
+  errors: FieldErrors
+  describe: (field: keyof FieldErrors) => string | undefined
+}) {
+  const zone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  const now = new Date()
+
+  return (
+    <div className={styles.call}>
+      <input type="hidden" name="callDays" value={days.join(',')} />
+      <fieldset
+        className={styles.choices}
+        aria-invalid={errors.callDays ? true : undefined}
+        aria-describedby={describe('callDays')}
+      >
+        <legend className={styles.label}>Which days suit you?</legend>
+        <div className={styles.chips}>
+          {callDays.map((day) => (
+            <label key={day} className={styles.chip}>
+              <input
+                type="checkbox"
+                name="day"
+                value={day}
+                checked={days.includes(day)}
+                onChange={(event) =>
+                  onDays(
+                    event.target.checked
+                      ? callDays.filter((d) => d === day || days.includes(d))
+                      : days.filter((d) => d !== day),
+                  )
+                }
+              />
+              <span>{day}</span>
+            </label>
+          ))}
+        </div>
+        <FieldError field="callDays" errors={errors} />
+      </fieldset>
+
+      <fieldset
+        className={styles.choices}
+        aria-invalid={errors.callTime ? true : undefined}
+        aria-describedby={describe('callTime')}
+      >
+        <legend className={styles.label}>What time of day?</legend>
+        <div className={styles.chips}>
+          {callWindows.map((window) => {
+            const local = windowIn(zone, window.from, window.to, now)
+            return (
+              <label key={window.value} className={styles.chip}>
+                <input type="radio" name="callTime" value={window.value} />
+                <span>
+                  {window.label} · {String(window.from).padStart(2, '0')}:00–{window.to}:00 CET
+                  {local ? <span className={styles.local}> ({local} your time)</span> : null}
+                </span>
+              </label>
+            )
+          })}
+        </div>
+        <FieldError field="callTime" errors={errors} />
+      </fieldset>
+      <p className={styles.callNote}>
+        I’ll reply by e-mail with a time and a call link. Times are in{' '}
+        {HOME_TIME_ZONE.split('/')[1]} (Central European Time).
+      </p>
+    </div>
+  )
 }

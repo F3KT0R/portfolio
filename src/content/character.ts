@@ -14,7 +14,14 @@ const characterData = {
   careerStart: '2023-02-20',
   origin: 'Novi Bečej, Serbia',
   timezone: 'CET (UTC+1)',
-  status: { available: true, label: 'Open to roles and project invitations' },
+  status: { available: true, label: 'Open to freelance projects · remote-first' },
+  lookingFor: {
+    engagement: 'Freelance projects first; the right long-term role is welcome too.',
+    workplace:
+      'Remote first, internationally too. Hybrid up to two days a week in Novi Sad, Subotica or Belgrade.',
+    relocation: 'Not relocating — settled in Novi Bečej.',
+    start: 'About one month’s notice.',
+  },
   pitch: [
     'I build web products that hold up: Angular and React on the front, Node and C# behind it, and tests that say what “done” means.',
     'By day I work on a production fintech app at PaySpot. On the side I ship small businesses’ shops and sites end to end — from Figma to Docker.',

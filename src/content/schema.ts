@@ -74,6 +74,13 @@ export const characterSchema = z.object({
   origin: sentence,
   timezone: z.string().min(2),
   status: z.object({ available: z.boolean(), label: sentence }),
+  /** What a recruiter screens on first, each answer in one line. */
+  lookingFor: z.object({
+    engagement: sentence,
+    workplace: sentence,
+    relocation: sentence,
+    start: sentence,
+  }),
   pitch: z.array(sentence).min(1).max(3),
   attributes: z.array(attributeSchema).length(6),
   loadout: z.array(
@@ -205,6 +212,20 @@ export const chronicleEntrySchema = z.object({
   quests: z.array(slug).default([]),
 })
 export type ChronicleEntry = z.infer<typeof chronicleEntrySchema>
+
+// ── Playstyle (how Tibor works) ───────────────────────────────────────────
+
+export const playstyleSchema = z.object({
+  id: slug,
+  title: sentence,
+  /** The principle in Tibor's own words. */
+  inMyWords: sentence,
+  /** What it looks like in real work — facts, not adjectives. */
+  inPractice: sentence,
+  /** Where to see it: site routes or public URLs. */
+  evidence: z.array(z.object({ label: sentence, href: z.string().startsWith('/') })).min(1),
+})
+export type Playstyle = z.infer<typeof playstyleSchema>
 
 // ── Testimonials (NPC dialogue) ───────────────────────────────────────────
 

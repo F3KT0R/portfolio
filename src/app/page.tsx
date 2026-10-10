@@ -4,10 +4,12 @@ import {
   IdentityCard,
   LanguagesPanel,
   LoadoutPanel,
+  LookingForPanel,
   TraitsPanel,
 } from '@/features/character'
 import { testimonials } from '@/content'
 import { NpcChatter } from '@/features/npc'
+import { PlaystylePanel } from '@/features/playstyle'
 import { FeaturedQuests } from '@/features/quests'
 import { CvLink } from '@/features/resume'
 import { PersonJsonLd } from '@/features/seo'
@@ -26,11 +28,13 @@ export default function CharacterSheetPage() {
       <IdentityCard actions={<CvLink />} />
 
       <PanelGrid>
+        <LookingForPanel className={panelWide} />
         <AttributesPanel />
         <LoadoutPanel />
         <TraitsPanel />
         <GuildPanel />
-        <LanguagesPanel className={panelWide} />
+        <PlaystylePanel />
+        <LanguagesPanel />
       </PanelGrid>
 
       <NpcChatter testimonials={testimonials} />

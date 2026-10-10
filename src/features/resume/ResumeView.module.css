@@ -99,6 +99,13 @@
   color: var(--text-muted);
 }
 
+.facts {
+  display: grid;
+  gap: var(--space-1);
+  padding-left: var(--space-5);
+  color: var(--text-soft);
+}
+
 .bullets {
   display: grid;
   gap: var(--space-1);
@@ -137,9 +144,13 @@
     font-size: var(--step-0);
   }
 
+  /* Sections may span pages; single entries and headings may not. */
   .section {
     gap: var(--space-2);
-    break-inside: avoid;
+  }
+
+  .section h2 {
+    break-after: avoid;
   }
 
   .entries {
@@ -150,7 +161,23 @@
     break-inside: avoid;
   }
 
-  .footer {
+  .footer,
+  .more {
     display: none;
+  }
+
+  /* On paper the four facts run on as one line. */
+  .facts {
+    display: block;
+    padding: 0;
+    list-style: none;
+  }
+
+  .facts li {
+    display: inline;
+  }
+
+  .facts li + li::before {
+    content: ' · ';
   }
 }
