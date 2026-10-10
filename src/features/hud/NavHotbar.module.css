@@ -1,0 +1,101 @@
+/* Phones: a fixed action bar along the bottom edge. */
+.nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  height: var(--hotbar-height);
+  padding: var(--space-1) var(--space-2) calc(var(--space-1) + env(safe-area-inset-bottom));
+  border-top: var(--border) solid var(--line-strong);
+  background: var(--surface-1);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-1);
+  height: 100%;
+  list-style: none;
+}
+
+.slot {
+  display: grid;
+  gap: 2px;
+  place-items: center;
+  height: 100%;
+  border: var(--border) solid transparent;
+  font-size: var(--step--2);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.slot:hover {
+  color: var(--text);
+}
+
+.slot[aria-current='page'] {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--surface-2);
+}
+
+.key {
+  display: none;
+}
+
+/* Wide screens: inline in the header, with the number key shown. */
+@media (width >= 56rem) {
+  .nav {
+    position: static;
+    height: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .list {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .slot {
+    display: flex;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--step--1);
+  }
+
+  /* In the header, icons only until the labels fit; the name stays for assistive tech. */
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media (width >= 78rem) {
+  .label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+}
+
+@media (width >= 90rem) {
+  .key {
+    display: inline;
+    opacity: 0.7;
+  }
+}
+
+@media print {
+  .nav {
+    display: none;
+  }
+}

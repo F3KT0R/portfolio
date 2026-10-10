@@ -1,0 +1,52 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+  list-style: none;
+}
+
+@media (width >= 30rem) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.slot {
+  display: grid;
+  gap: var(--space-1);
+  justify-items: start;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-3);
+  border: var(--border) solid var(--line);
+  border-top-color: var(--item-color);
+  background: var(--surface-inset);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.slot:hover {
+  border-color: var(--item-color);
+}
+
+.icon {
+  color: var(--item-color);
+}
+
+.slotName {
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.item {
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--item-color);
+}
+
+.more {
+  margin-top: var(--space-2);
+}

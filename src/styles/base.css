@@ -1,0 +1,108 @@
+/* Element defaults only. Anything with a class name lives in a CSS Module. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--hud-height) + var(--space-4));
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--surface-0);
+  /* A 4px dither: reads as texture, never as noise behind text. */
+  background-image: radial-gradient(var(--dither) 1px, transparent 1.5px);
+  background-size: var(--pixel) var(--pixel);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--accent-line);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent-strong);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: var(--border) solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  body {
+    background: none;
+  }
+}
+
+/* Konami code (features/easter-eggs): one stepped colour-cycle of the page. */
+:root[data-konami='on'] body {
+  animation: konami var(--dur-slow) var(--ease-pixel) 2;
+}
+
+@keyframes konami {
+  50% {
+    filter: hue-rotate(180deg) saturate(1.6);
+  }
+}

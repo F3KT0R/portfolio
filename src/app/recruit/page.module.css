@@ -1,0 +1,27 @@
+/* The ways to reach me as one strip: a column each on wider screens. */
+.roads {
+  display: grid;
+  gap: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-5);
+  list-style: none;
+  overflow-wrap: anywhere;
+}
+
+@media (width >= 40rem) {
+  .roads {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  }
+}
+
+.roads li {
+  display: grid;
+  align-content: start;
+}
+
+.roadLabel {
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}

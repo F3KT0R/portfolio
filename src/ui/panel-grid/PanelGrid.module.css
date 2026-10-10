@@ -1,0 +1,16 @@
+/* Grid items stretch by default, so both panels in a row share one height. */
+.grid {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+@media (width >= 56rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wide {
+    grid-column: 1 / -1;
+  }
+}

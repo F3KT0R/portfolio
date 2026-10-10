@@ -1,0 +1,59 @@
+.list {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.guild {
+  padding-left: var(--space-3);
+  border-left: var(--pixel) solid var(--accent-line);
+}
+
+.guildName,
+.traitName {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1.25;
+}
+
+.guildRole {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--accent);
+}
+
+.note {
+  font-size: var(--step--1);
+  color: var(--text-soft);
+}
+
+.pairs {
+  display: grid;
+  gap: var(--space-2) var(--space-6);
+  margin: 0;
+}
+
+@media (width >= 40rem) {
+  .pairs {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  }
+}
+
+.pairs div {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: space-between;
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border) dashed var(--line);
+}
+
+.pairs dt {
+  font-family: var(--font-display);
+}
+
+.pairs dd {
+  margin: 0;
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--text-soft);
+}

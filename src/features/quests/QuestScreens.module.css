@@ -1,0 +1,35 @@
+.screens {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.figure {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: var(--space-2);
+  height: 100%;
+  margin: 0;
+}
+
+/* Phone and desktop shots share a row: each is fitted, centred, never stretched. */
+.frame {
+  display: grid;
+  place-items: center;
+  padding: var(--space-3);
+  border: var(--border) solid var(--line-strong);
+  background: var(--surface-inset);
+  box-shadow: var(--shadow-hard);
+}
+
+.image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 28rem;
+}
+
+.caption {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}

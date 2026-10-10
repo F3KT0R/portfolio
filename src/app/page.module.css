@@ -1,0 +1,9 @@
+.sheet {
+  display: grid;
+  gap: var(--space-6);
+  padding-top: var(--space-6);
+}
+
+.more {
+  margin-top: var(--space-5);
+}

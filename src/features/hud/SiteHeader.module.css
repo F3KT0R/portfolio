@@ -1,0 +1,81 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: var(--border) solid var(--line-strong);
+  /* Opaque on purpose: backdrop-filter would become the containing block of
+     the fixed mobile hotbar inside the header and pin it to the top. */
+  background: var(--surface-1);
+}
+
+.inner {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  width: min(84rem, 100% - 2 * var(--gutter));
+  min-height: var(--hud-height);
+  margin-inline: auto;
+}
+
+.brand {
+  flex: none;
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  text-decoration: none;
+}
+
+.crest {
+  color: var(--accent);
+}
+
+.brandName {
+  font-family: var(--font-data);
+  font-size: var(--step-0);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.level {
+  white-space: nowrap;
+  padding: 0 var(--space-1);
+  border: var(--border) solid var(--accent-line);
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.progress {
+  display: none;
+}
+
+@media (width >= 90rem) {
+  .progress {
+    display: block;
+  }
+}
+
+.skip {
+  padding: var(--space-1) var(--space-2);
+  border: var(--border) dashed var(--line-strong);
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  text-decoration: none;
+}
+
+.skip:hover {
+  border-color: var(--accent);
+}
+
+@media print {
+  .header {
+    display: none;
+  }
+}

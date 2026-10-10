@@ -1,0 +1,334 @@
+/*
+ * One layout, two media. On screen it sits on the site's surface; printed it
+ * is a white A4 page (scripts/generate-cv.mjs prints it with the parchment
+ * theme's ink colours). Mobile first: one column, the sidebar after the story.
+ */
+
+.cv {
+  display: grid;
+  gap: var(--space-6);
+  max-width: 60rem;
+  padding: var(--space-6) 0;
+  margin-inline: auto;
+}
+
+/* ── Header ── */
+.header {
+  display: grid;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: calc(var(--border) * 1.5) solid var(--accent);
+}
+
+@media (width >= 48rem) {
+  .header {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+}
+
+.name {
+  font-size: var(--step-4);
+  line-height: 1;
+}
+
+.role {
+  margin-top: var(--space-2);
+  font-size: var(--step-1);
+  color: var(--accent);
+}
+
+.contact {
+  display: grid;
+  gap: 2px;
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  list-style: none;
+}
+
+@media (width >= 48rem) {
+  .contact {
+    text-align: right;
+  }
+}
+
+.contact a {
+  text-decoration: none;
+}
+
+/* ── Columns ── */
+.columns {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (width >= 56rem) {
+  .columns {
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    gap: var(--space-7);
+  }
+
+  .side {
+    padding-left: var(--space-5);
+    border-left: var(--border) solid var(--line);
+  }
+}
+
+.main,
+.side {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+/* ── Sections ── */
+.section {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.sectionTitle {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.sectionTitle::after {
+  flex: 1;
+  height: 1px;
+  content: '';
+  background: var(--line);
+}
+
+.profile {
+  color: var(--text-soft);
+}
+
+/* ── Entries (experience and projects) ── */
+.entries {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.entry {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.entryHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-3);
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.entryTitle {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.entryTitle a {
+  text-decoration: none;
+}
+
+.when {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.org {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.bullets {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--space-1);
+  padding-left: var(--space-5);
+  color: var(--text-soft);
+}
+
+.bullets li::marker {
+  color: var(--accent);
+}
+
+.projectsLine,
+.stack {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.plain {
+  color: var(--text-soft);
+}
+
+/* ── Sidebar ── */
+.facts {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  font-size: var(--step--1);
+}
+
+.facts dt {
+  margin-top: var(--space-2);
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.skillGroup {
+  display: grid;
+}
+
+.plainList {
+  display: grid;
+  gap: 2px;
+  font-size: var(--step--1);
+  list-style: none;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.education {
+  display: grid;
+  gap: 2px;
+  font-size: var(--step--1);
+}
+
+/* ── Footer (screen only) ── */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  padding-top: var(--space-5);
+  border-top: var(--border) solid var(--line);
+}
+
+/* ── Print: the PDF CV ── */
+@media print {
+  .cv {
+    gap: var(--space-4);
+    max-width: none;
+    padding: 0;
+    font-size: 0.78rem;
+    line-height: 1.42;
+  }
+
+  .header {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    padding-bottom: var(--space-3);
+  }
+
+  .name {
+    font-size: 2.1rem;
+  }
+
+  .role {
+    margin-top: var(--space-1);
+    font-size: 0.95rem;
+  }
+
+  .contact {
+    text-align: right;
+  }
+
+  .columns {
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    gap: var(--space-5);
+  }
+
+  .side {
+    padding-left: var(--space-4);
+    border-left: 1px solid var(--line);
+  }
+
+  /*
+   * Inside the columns, plain block flow: Chromium splits nested grids across
+   * a page break unreliably (entries overlapped), blocks paginate cleanly.
+   */
+  .main,
+  .side,
+  .section,
+  .entries,
+  .entry {
+    display: block;
+  }
+
+  .section + .section {
+    margin-top: var(--space-4);
+  }
+
+  .sectionTitle {
+    margin-bottom: var(--space-2);
+    font-size: 0.85em;
+    break-after: avoid;
+  }
+
+  .entry + .entry {
+    margin-top: var(--space-3);
+  }
+
+  .entry,
+  .side .section {
+    break-inside: avoid;
+  }
+
+  /* One body size for every running text on the page. */
+  .profile,
+  .bullets,
+  .plain {
+    font-size: 0.95em;
+  }
+
+  .profile + .profile {
+    margin-top: var(--space-1);
+  }
+
+  /* Sizes relative to the page's base, so both columns share one scale. */
+  .entryTitle {
+    font-size: 1.08em;
+  }
+
+  .org,
+  .when,
+  .stack,
+  .projectsLine,
+  .facts,
+  .plainList,
+  .education {
+    font-size: 0.92em;
+  }
+
+  .facts dt {
+    font-size: 0.82em;
+  }
+
+  .footer {
+    display: none;
+  }
+}

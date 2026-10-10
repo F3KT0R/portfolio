@@ -1,0 +1,73 @@
+.header {
+  display: grid;
+  gap: var(--space-5);
+  align-items: end;
+  padding-block: var(--space-6) var(--space-5);
+}
+
+@media (width >= 56rem) {
+  .header {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.text {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.eyebrow {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--step-4);
+}
+
+.lead {
+  max-width: 62ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.aside {
+  min-width: min(100%, 18rem);
+}
+
+.section {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-bottom: var(--space-4);
+  font-size: var(--step-2);
+}
+
+/* A pixel rule that runs to the end of the line. */
+.section::after {
+  flex: 1;
+  height: var(--border);
+  content: '';
+  background: repeating-linear-gradient(
+    to right,
+    var(--line-strong) 0 var(--pixel),
+    transparent var(--pixel) calc(var(--pixel) * 2)
+  );
+}
+
+/* Plain words beside a game term, in the body face so they read as a translation. */
+.gloss {
+  font-family: var(--font-body);
+  font-size: max(0.45em, var(--step--1));
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  vertical-align: middle;
+}

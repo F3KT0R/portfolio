@@ -1,0 +1,40 @@
+.footer {
+  margin-top: var(--space-8);
+  padding: var(--space-5) 0 calc(var(--hotbar-height) + var(--space-5));
+  border-top: var(--border) dashed var(--line);
+}
+
+@media (width >= 56rem) {
+  .footer {
+    padding-bottom: var(--space-5);
+  }
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-2);
+  width: min(var(--page-max), 100% - 2 * var(--gutter));
+  margin-inline: auto;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.line a {
+  color: var(--text-soft);
+}
+
+.hint {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hint {
+    display: block;
+  }
+}
+
+@media print {
+  .footer {
+    display: none;
+  }
+}

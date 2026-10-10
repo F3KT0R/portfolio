@@ -1,0 +1,203 @@
+.form {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.honeypot {
+  display: none;
+}
+
+.row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (width >= 40rem) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.label {
+  padding: 0;
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  color: var(--text-soft);
+  text-transform: uppercase;
+}
+
+.optional {
+  color: var(--text-muted);
+  text-transform: none;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: var(--border) solid var(--line-strong);
+  background: var(--surface-inset);
+  box-shadow: inset var(--border) var(--border) 0 var(--shadow-color);
+}
+
+.textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.input:focus-visible,
+.textarea:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.input[aria-invalid='true'],
+.textarea[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.intents {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.intents .label {
+  margin-bottom: var(--space-1);
+}
+
+.intent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3);
+  border: var(--border) solid var(--line);
+  cursor: pointer;
+  background: var(--surface-inset);
+}
+
+.intent:has(:checked) {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+
+.intent:has(:focus-visible) {
+  outline: var(--border) solid var(--accent);
+  outline-offset: 2px;
+}
+
+.intent input {
+  accent-color: var(--accent);
+}
+
+.intentText {
+  display: grid;
+}
+
+.intentLabel {
+  font-weight: 600;
+}
+
+.intentHint {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.error {
+  font-size: var(--step--1);
+  color: var(--danger);
+}
+
+.actions {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.failed {
+  color: var(--danger);
+}
+
+.sent {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-5);
+  border: var(--border) solid var(--ok);
+  background: var(--surface-2);
+}
+
+.sentIcon {
+  color: var(--ok);
+}
+
+.sentTitle {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+}
+
+/* ── Call preferences ── */
+.call {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: var(--border) dashed var(--accent-line);
+}
+
+.choices {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border: var(--border) solid var(--line);
+  cursor: pointer;
+  background: var(--surface-inset);
+}
+
+.chip:has(:checked) {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+
+.chip:has(:focus-visible) {
+  outline: var(--border) solid var(--accent);
+  outline-offset: 2px;
+}
+
+.chip input {
+  accent-color: var(--accent);
+}
+
+.local {
+  color: var(--text-muted);
+}
+
+.callNote {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}

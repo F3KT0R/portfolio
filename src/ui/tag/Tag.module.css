@@ -1,0 +1,46 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.tag {
+  --tag-color: var(--text-soft);
+
+  display: inline-block;
+  padding: 0.125rem var(--space-2);
+  border: var(--border) solid var(--line);
+  border-left-color: var(--tag-color);
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--tag-color);
+  text-decoration: none;
+  background: var(--surface-inset);
+}
+
+.link:hover {
+  color: var(--tag-color);
+  border-color: var(--tag-color);
+}
+
+.tag[data-rarity='common'] {
+  --tag-color: var(--rarity-common);
+}
+
+.tag[data-rarity='uncommon'] {
+  --tag-color: var(--rarity-uncommon);
+}
+
+.tag[data-rarity='rare'] {
+  --tag-color: var(--rarity-rare);
+}
+
+.tag[data-rarity='epic'] {
+  --tag-color: var(--rarity-epic);
+}
+
+.tag[data-rarity='legendary'] {
+  --tag-color: var(--rarity-legendary);
+}
