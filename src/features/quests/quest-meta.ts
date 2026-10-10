@@ -1,3 +1,4 @@
+import { gloss } from '@/lib/glossary'
 import type { QuestKind, QuestStatus } from '@/content'
 
 export const kindLabel: Record<QuestKind, string> = {
@@ -6,16 +7,18 @@ export const kindLabel: Record<QuestKind, string> = {
   archive: 'Archived quest',
 }
 
-export const kindHeading: Record<QuestKind, { title: string; lead: string }> = {
+export const kindHeading: Record<QuestKind, { title: string; gloss: string; lead: string }> = {
   main: {
     title: 'Main quests',
+    gloss: gloss.mainQuests,
     lead: 'Client and business work: real users, real money, real deadlines.',
   },
   side: {
     title: 'Side quests',
+    gloss: gloss.sideQuests,
     lead: 'Tools and experiments built for myself — held to the same standard.',
   },
-  archive: { title: 'Archive', lead: 'Where it started.' },
+  archive: { title: 'Archive', gloss: gloss.archive, lead: 'Where it started.' },
 }
 
 export const statusLabel: Record<QuestStatus, string> = {

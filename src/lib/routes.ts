@@ -1,4 +1,5 @@
 import type { Route } from 'next'
+import { gloss } from './glossary'
 import type { IconName } from './icon-names'
 
 // Every internal address is built here, so a renamed route is a one-line change
@@ -21,13 +22,26 @@ export type StaticRouteKey = {
 
 /** The primary navigation, in hotbar order. Keys 1–6 jump to these. */
 export const primaryNav = [
-  { key: 'sheet', label: 'Sheet', href: routes.sheet, icon: 'shield' },
-  { key: 'quests', label: 'Quests', href: routes.quests, icon: 'scroll' },
-  { key: 'skills', label: 'Skills', href: routes.skills, icon: 'gem' },
-  { key: 'chronicle', label: 'Chronicle', href: routes.chronicle, icon: 'map' },
-  { key: 'codex', label: 'Codex', href: routes.codex, icon: 'star' },
-  { key: 'recruit', label: 'Recruit', href: routes.recruit, icon: 'flag' },
-] as const satisfies readonly { key: StaticRouteKey; label: string; href: Route; icon: IconName }[]
+  { key: 'sheet', label: 'Sheet', plain: gloss.sheet, href: routes.sheet, icon: 'shield' },
+  { key: 'quests', label: 'Quests', plain: gloss.quests, href: routes.quests, icon: 'scroll' },
+  { key: 'skills', label: 'Skills', plain: 'skills', href: routes.skills, icon: 'gem' },
+  {
+    key: 'chronicle',
+    label: 'Chronicle',
+    plain: gloss.chronicle,
+    href: routes.chronicle,
+    icon: 'map',
+  },
+  { key: 'codex', label: 'Codex', plain: gloss.codex, href: routes.codex, icon: 'star' },
+  { key: 'recruit', label: 'Recruit', plain: gloss.recruit, href: routes.recruit, icon: 'flag' },
+] as const satisfies readonly {
+  key: StaticRouteKey
+  label: string
+  /** The page in plain words, for tooltips and search. */
+  plain: string
+  href: Route
+  icon: IconName
+}[]
 
 /** True when `pathname` is `href` or one of its sub-pages (the sheet only matches itself). */
 export function isActive(pathname: string, href: string) {

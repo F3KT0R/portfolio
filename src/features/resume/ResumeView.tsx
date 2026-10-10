@@ -104,7 +104,7 @@ export function ResumeView() {
                 · {quest.role}
                 <span className={styles.when}>{formatPeriod(quest.start, quest.end)}</span>
               </p>
-              <p>{plainText(quest.summary)}</p>
+              <p>{plainText(quest.plain)}</p>
               <p className={styles.stackLine}>
                 {quest.stack
                   .slice(0, 6)

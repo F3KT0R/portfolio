@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props) {
   if (!quest) return {}
   return pageMetadata({
     title: `${quest.title} — ${quest.epithet}`,
-    description: plainText(quest.summary),
+    description: plainText(quest.plain),
     path: routes.quest(quest.slug),
   })
 }

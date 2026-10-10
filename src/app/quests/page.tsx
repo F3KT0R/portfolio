@@ -1,6 +1,7 @@
 import { quests } from '@/content'
 import { QuestLog } from '@/features/quests'
 import { pageMetadata } from '@/features/seo'
+import { gloss } from '@/lib/glossary'
 import { routes } from '@/lib/routes'
 import { PageHeader } from '@/ui'
 
@@ -19,6 +20,7 @@ export default function QuestsPage() {
         icon="scroll"
         eyebrow={`Quest log · ${quests.length} quests · ${completed} completed`}
         title="Quest log"
+        gloss={gloss.quests}
         lead="Projects as quests: who gave them, who was in the party, what had to be done and what it earned. Open one for the full journal."
       />
       <QuestLog />

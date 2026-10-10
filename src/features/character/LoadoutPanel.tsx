@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { character, getSkill, rarityMeaning } from '@/content'
 import type { IconName } from '@/lib/icon-names'
+import { gloss } from '@/lib/glossary'
 import { routes } from '@/lib/routes'
 import { Frame, ItemCard, PixelIcon } from '@/ui'
 import styles from './LoadoutPanel.module.css'
@@ -22,7 +23,7 @@ const slotLabel: Record<
 /** The equipped stack, as gear. Each item opens a tooltip with the real skill behind it. */
 export function LoadoutPanel() {
   return (
-    <Frame title="Loadout" titleId="loadout" meta="equipped">
+    <Frame title="Loadout" gloss={gloss.loadout} titleId="loadout" meta="equipped">
       <ul className={styles.grid}>
         {character.loadout.map((item) => {
           const skill = getSkill(item.skill)

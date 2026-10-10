@@ -4,6 +4,7 @@ import { NpcChatter } from '@/features/npc'
 import { formatPeriod } from '@/lib/dates'
 import { routes } from '@/lib/routes'
 import { cx } from '@/lib/cx'
+import { gloss } from '@/lib/glossary'
 import {
   ButtonAnchor,
   Frame,
@@ -18,6 +19,7 @@ import {
   TagList,
 } from '@/ui'
 import { BossFight } from './BossFight'
+import { ArchitectureMap, CodeTour, Tradeoffs } from './QuestDeepDive'
 import { QuestScreens } from './QuestScreens'
 import { Difficulty, QuestBanner, QuestStatus } from './QuestBits'
 import { kindLabel } from './quest-meta'
@@ -48,6 +50,13 @@ export function QuestJournal({ quest }: { quest: Quest }) {
         </div>
       </header>
 
+      {/* Two readers: the outcome in plain words, then the engineering summary. */}
+      <div className={styles.plain}>
+        <p className={styles.plainLabel}>In plain words</p>
+        <p className={styles.plainText}>
+          <RedactedText>{quest.plain}</RedactedText>
+        </p>
+      </div>
       <p className={styles.summary}>
         <RedactedText>{quest.summary}</RedactedText>
       </p>
@@ -126,7 +135,9 @@ export function QuestJournal({ quest }: { quest: Quest }) {
         <QuestScreens quest={quest} />
 
         <section aria-labelledby="objectives">
-          <SectionHeading id="objectives">Objectives</SectionHeading>
+          <SectionHeading id="objectives" gloss={gloss.objectives}>
+            Objectives
+          </SectionHeading>
           <ul className={styles.objectives}>
             {quest.objectives.map((line) => (
               <li key={line}>
@@ -137,7 +148,9 @@ export function QuestJournal({ quest }: { quest: Quest }) {
         </section>
 
         <section aria-labelledby="rewards">
-          <SectionHeading id="rewards">Rewards</SectionHeading>
+          <SectionHeading id="rewards" gloss={gloss.rewards}>
+            Rewards
+          </SectionHeading>
           <PanelGrid as="ul">
             {quest.rewards.map((line, index) => (
               <li
@@ -154,6 +167,12 @@ export function QuestJournal({ quest }: { quest: Quest }) {
         </section>
 
         {quest.boss ? <BossFight boss={quest.boss} /> : null}
+
+        {quest.architecture ? <ArchitectureMap architecture={quest.architecture} /> : null}
+
+        {quest.tradeoffs.length > 0 ? <Tradeoffs tradeoffs={quest.tradeoffs} /> : null}
+
+        {quest.codeTour.length > 0 ? <CodeTour stops={quest.codeTour} /> : null}
 
         <NpcChatter
           testimonials={getTestimonialsForQuest(quest.slug)}

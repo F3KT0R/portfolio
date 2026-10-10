@@ -23,6 +23,8 @@ const questData = [
     start: '2026-09',
     difficulty: 5,
     sigil: 'potion',
+    plain:
+      'Built the new website of a pharmaceutical company in Serbian and English, each language on its own web address, for a web agency’s client.',
     summary:
       'The agency’s Figma design built as a Next.js site that serves Serbian on union-medic.rs and English on union-medic.com from one codebase, with an article admin for the client’s editors.',
     stack: [
@@ -63,6 +65,54 @@ const questData = [
       lesson:
         'A flaky test is a bug report with bad reproduction steps. After the fix: 40 passes out of 40.',
     },
+    architecture: {
+      tiers: [
+        { label: 'Visitors', items: ['union-medic.rs — Serbian', 'union-medic.com — English'] },
+        {
+          label: 'Proxy',
+          items: ['Host decides the language', '308 redirects to localised addresses'],
+        },
+        {
+          label: 'Next.js pages',
+          items: [
+            'Server-rendered from app/[lang]',
+            'Dictionaries stay on the server',
+            'Client islands: menu, language links, forms',
+          ],
+        },
+        {
+          label: 'Delivery',
+          items: [
+            'Docker image on Coolify',
+            'Forms via Resend',
+            'TinaCMS content branch → bot pull request',
+          ],
+        },
+      ],
+    },
+    tradeoffs: [
+      {
+        chose: 'The domain decides the language',
+        over: 'A language prefix in the path (/sr, /en)',
+        because:
+          'Each language gets its own address, search listing and sitemap, and nobody is redirected by browser settings.',
+        cost: 'A proxy and two site URLs that must be set at build and at run time.',
+      },
+      {
+        chose: 'Server components with small client islands',
+        over: 'A client-side language provider',
+        because:
+          'The dictionaries never reach the browser, and every page works without JavaScript.',
+        cost: 'Each island receives only its own strings, passed down as props.',
+      },
+      {
+        chose: 'Visual baselines checked in CI',
+        over: 'Eyeballing the design before each release',
+        because:
+          'Layout drift at 390, 1000 and 1440 px fails the pull request instead of reaching the client.',
+        cost: 'Baselines differ per operating system, so a workflow regenerates them for Linux.',
+      },
+    ],
     journal: [
       {
         heading: 'The brief',
@@ -117,6 +167,8 @@ const questData = [
     start: '2023-02',
     difficulty: 5,
     sigil: 'sword',
+    plain:
+      'My day job: building and improving the web app of a fintech company, and helping newer developers grow.',
     summary:
       'My day job: UI engineering and architecture on a production fintech app, internal tooling and mentoring. Most of it is under NDA — this is what can be said, and the [[redacted:8]] stays inside.',
     stack: [
@@ -167,6 +219,8 @@ const questData = [
     start: '2024-02',
     difficulty: 4,
     sigil: 'chest',
+    plain:
+      'Built the online shop my own coffee business runs on: customers order online, and prices update themselves every day.',
     summary:
       'My own online shop for coffee capsules, tea and syrups bought in the UK and sold in Serbia: a catalogue that syncs and prices itself every day, pre-orders confirmed over Instagram, and an admin that runs the whole order lifecycle.',
     stack: [
@@ -204,6 +258,79 @@ const questData = [
       lesson:
         'Read the platform’s limits before the code’s logs — and test the failure report as hard as the success path.',
     },
+    architecture: {
+      tiers: [
+        {
+          label: 'Customers & owner',
+          items: ['Storefront in the browser', 'Admin for orders, buying, shipping'],
+        },
+        {
+          label: 'Netlify',
+          items: ['React storefront and admin', 'Proxies /api — same origin, no CORS'],
+        },
+        {
+          label: 'Render',
+          items: [
+            'Fastify API',
+            'Shared core rules: pricing, cart, order states',
+            'Daily catalogue sync',
+          ],
+        },
+        {
+          label: 'Data & services',
+          items: [
+            'Neon Postgres (Prisma)',
+            'Supplier catalogue over GraphQL',
+            'Bank exchange rates',
+            'Gmail relay for e-mail',
+          ],
+        },
+      ],
+    },
+    codeTour: [
+      {
+        label: 'packages/core/src/pricing.ts',
+        url: 'https://github.com/F3KT0R/coffee-shop/blob/6099f2358788fb85d7c225fa9888fd55da4fb05d/packages/core/src/pricing.ts',
+        why: 'The pricing rule in one pure function: sell at the regular price, so supplier sales become margin.',
+      },
+      {
+        label: 'packages/core/src/orders.ts',
+        url: 'https://github.com/F3KT0R/coffee-shop/blob/6099f2358788fb85d7c225fa9888fd55da4fb05d/packages/core/src/orders.ts#L26',
+        why: 'Order statuses as an explicit transition table; anything not listed is refused.',
+      },
+      {
+        label: 'apps/api/src/orders/service.ts',
+        url: 'https://github.com/F3KT0R/coffee-shop/blob/6099f2358788fb85d7c225fa9888fd55da4fb05d/apps/api/src/orders/service.ts#L365',
+        why: 'Idempotent checkout: a retried request returns the existing order instead of creating a second one.',
+      },
+      {
+        label: 'apps/api/src/mail/mailer.ts',
+        url: 'https://github.com/F3KT0R/coffee-shop/blob/6099f2358788fb85d7c225fa9888fd55da4fb05d/apps/api/src/mail/mailer.ts#L22',
+        why: 'The boss fight’s final blow: following the relay’s redirect by hand, as a GET.',
+      },
+    ],
+    tradeoffs: [
+      {
+        chose: 'The supplier’s public GraphQL API',
+        over: 'Scraping its product pages',
+        because:
+          'Structured data — about 1,150 products in roughly 12 requests — instead of fragile HTML.',
+        cost: 'It depends on an API the supplier could change, so the sync is built to fail safe.',
+      },
+      {
+        chose: 'Cash on delivery, confirmed over Instagram',
+        over: 'Online card payments',
+        because:
+          'It matches how the shop’s customers already buy, with no payment provider to integrate or pay.',
+        cost: 'Every order needs a manual confirmation step in the admin.',
+      },
+      {
+        chose: 'PGlite for local development',
+        over: 'Postgres in Docker',
+        because: 'Real Postgres compiled to WebAssembly: the project runs with npm alone.',
+        cost: 'Local and production run different Postgres builds.',
+      },
+    ],
     journal: [
       {
         heading: 'Shape of the system',
@@ -265,6 +392,8 @@ const questData = [
     start: '2026-09',
     difficulty: 5,
     sigil: 'key',
+    plain:
+      'Turned a spreadsheet into a real app that tracks 150+ resale orders for a two-person business, on phones, with alerts.',
     summary:
       'It began as a Google Apps Script over Gmail and a spreadsheet. A month later it is a full-stack app: a Fastify API on Supabase that reads the mailbox in real time, a mobile-first React app with push notifications for both owners, a shared core of tested business rules, and a Chrome extension for the one carrier without an API.',
     stack: [
@@ -303,6 +432,56 @@ const questData = [
       lesson:
         'Measure before you optimise. The first fixes were real, but the biggest cost was how often the code ran, not what it read.',
     },
+    architecture: {
+      tiers: [
+        {
+          label: 'Sources',
+          items: [
+            'Gmail: receipts and carrier e-mails (push + catch-up)',
+            'Post office tracker via Chrome extension',
+            'Instagram via Meta’s API',
+          ],
+        },
+        {
+          label: 'API on Render',
+          items: [
+            'Fastify + Prisma',
+            'Shared core: parsers, order state machine',
+            'Ledger, sync slot (max once a minute)',
+          ],
+        },
+        {
+          label: 'Supabase',
+          items: ['Postgres', 'Sign-in', 'Listing-photo storage', 'Nightly backup to a local PC'],
+        },
+        {
+          label: 'Owners',
+          items: ['React app on Vercel, phone-first', 'Web push on phone and desktop'],
+        },
+      ],
+    },
+    tradeoffs: [
+      {
+        chose: 'Receipt-led matching',
+        over: 'Correlating anonymous parcels with purchases',
+        because:
+          'An order exists before any parcel does, so carrier e-mails attach to an exact tracking number — never a guess.',
+        cost: 'The tracking number is added by hand from the conversation.',
+      },
+      {
+        chose: 'A sync slot: at most one sync a minute',
+        over: 'Caching the expensive reads',
+        because:
+          'It removes the cause — 1,709 runs in 26 hours — instead of making each run cheaper.',
+        cost: 'New mail can take up to a minute to show.',
+      },
+      {
+        chose: 'Supabase for the database, sign-in and storage',
+        over: 'Three separate services',
+        because: 'One provider and one bill for three needs in a two-person app.',
+        cost: 'A shared limit of 15 database connections, so the API caps its own pool.',
+      },
+    ],
     journal: [
       {
         heading: 'Receipt-led, not guess-led',
@@ -339,6 +518,8 @@ const questData = [
     start: '2026-10',
     difficulty: 3,
     sigil: 'heart',
+    plain:
+      'Redesigned and rebuilt the website of a family pasta maker, with an online shop that fits how their customers like to pay.',
     summary:
       'A rebuild of a family business’s old static site into a fast, fully prerendered Next.js site with a small web shop that fits how people in Serbia actually buy: cash on delivery or bank transfer, no accounts.',
     stack: [
@@ -362,6 +543,38 @@ const questData = [
       'Orders get readable numbers (RV-261002-AB12) and e-mails to the shop and the customer.',
       'Product and bakery photos from 2016 recovered from the Wayback Machine.',
       'Old .html addresses redirect permanently to their new pages.',
+    ],
+    architecture: {
+      tiers: [
+        {
+          label: 'Customers',
+          items: ['Browse prerendered pages', 'Cart kept in the browser, synced across tabs'],
+        },
+        { label: 'Next.js', items: ['Every page static', 'One server action per form'] },
+        {
+          label: 'Order action',
+          items: ['Validates with Zod', 'Re-prices every line from the catalogue'],
+        },
+        {
+          label: 'Delivery',
+          items: ['E-mails to shop and customer (Resend)', 'A JSON copy of each order'],
+        },
+      ],
+    },
+    tradeoffs: [
+      {
+        chose: 'Cash on delivery or bank transfer, no accounts',
+        over: 'Card payments and customer accounts',
+        because:
+          'It is how the workshop’s customers in Serbia already buy, and there is nothing to sign up for.',
+        cost: 'Payments are matched by hand.',
+      },
+      {
+        chose: 'The cart in the browser',
+        over: 'Server-side sessions',
+        because: 'Every page stays static, with no database to run.',
+        cost: 'A cart lives in one browser and does not follow the customer to another device.',
+      },
     ],
     journal: [
       {
@@ -407,6 +620,8 @@ const questData = [
     start: '2025-12',
     difficulty: 4,
     sigil: 'bolt',
+    plain:
+      'A personal passion project: software that trades cryptocurrency automatically, with safety limits put first.',
     summary:
       'A passion project where two interests meet — markets and automation: an AI-assisted algorithmic trading bot for Binance in Python, built conservative first: risk gates before strategies, a ledger that reconciles with its logs, and a dashboard that starts in paper or live mode.',
     stack: ['python', 'integrations', 'validation', 'writing'],
@@ -420,6 +635,27 @@ const questData = [
       'A daily halt after three stop-losses per strategy.',
       'A persistent ledger reconciled against logs, with heartbeats and recovery.',
     ],
+    architecture: {
+      tiers: [
+        { label: 'Market data', items: ['Binance via CCXT'] },
+        {
+          label: 'Decision',
+          items: [
+            'Regime controller: trend, range or transition',
+            'Strategies: mean reversion, momentum, grid',
+          ],
+        },
+        { label: 'Safety', items: ['Seven risk gates before any order'] },
+        {
+          label: 'Execution',
+          items: [
+            'Spot and futures orders',
+            'Ledger reconciled with logs',
+            'Heartbeats and recovery',
+          ],
+        },
+      ],
+    },
     links: { repoNote: 'Private repository.' },
   },
   {
@@ -435,6 +671,8 @@ const questData = [
     end: '2026-09',
     difficulty: 2,
     sigil: 'gem',
+    plain:
+      'An online shop for handmade clocks that takes real payments through PayPal, without running a server.',
     summary:
       'A localised Next.js storefront for one-off clocks sold in the UK, Germany and Serbia, with real PayPal checkout and no database.',
     stack: ['nextjs', 'typescript', 'css', 'integrations', 'i18n'],
@@ -455,6 +693,35 @@ const questData = [
         caption: 'The storefront, in Serbian with dinar prices.',
       },
     ],
+    architecture: {
+      tiers: [
+        { label: 'Buyers', items: ['UK, Germany and Serbia', 'Bag kept in the browser'] },
+        { label: 'Next.js storefront', items: ['Localised copy and currencies'] },
+        { label: 'Two serverless routes', items: ['Recompute the total from the product list'] },
+        { label: 'PayPal', items: ['Orders API: create and capture'] },
+      ],
+    },
+    codeTour: [
+      {
+        label: 'src/lib/paypal-server.ts',
+        url: 'https://github.com/F3KT0R/clocks/blob/d183032eb98fc657ef43012e110ba29c79eeeff0/src/lib/paypal-server.ts',
+        why: 'The total is recomputed from the trusted catalogue on every payment — never taken from the browser.',
+      },
+      {
+        label: 'src/app/api/paypal/orders/route.ts',
+        url: 'https://github.com/F3KT0R/clocks/blob/d183032eb98fc657ef43012e110ba29c79eeeff0/src/app/api/paypal/orders/route.ts',
+        why: 'The whole backend: validate the input, create the PayPal order, nothing else.',
+      },
+    ],
+    tradeoffs: [
+      {
+        chose: 'PayPal’s buttons and two serverless routes',
+        over: 'A backend with a database',
+        because:
+          'No server to run and no card data to touch, for a shop selling a small run of pieces.',
+        cost: 'PayPal’s fees, and products are edited in code.',
+      },
+    ],
     links: { repo: 'https://github.com/F3KT0R/clocks' },
   },
   {
@@ -469,6 +736,7 @@ const questData = [
     start: '2026-10',
     difficulty: 3,
     sigil: 'shield',
+    plain: 'This website: a portfolio that plays like a game but can be read in thirty seconds.',
     summary:
       'The site you are on: a portfolio built like a product, with layered architecture enforced by scripts, validated content and a game layer that never stands between a recruiter and the facts.',
     stack: [
@@ -491,6 +759,49 @@ const questData = [
       'Layer and client-boundary rules checked by scripts/check-architecture.mjs on every lint.',
       'Content validated by Zod at build time; cross-references checked by unit tests.',
       'Every route scanned by axe and rendered without JavaScript in the end-to-end suite.',
+    ],
+    architecture: {
+      tiers: [
+        { label: 'Content', items: ['Typed data, validated by Zod at build'] },
+        { label: 'Engine', items: ['Pure TypeScript: levels, achievements'] },
+        {
+          label: 'Features & UI',
+          items: ['Vertical slices with a public index', 'Domain-free design system'],
+        },
+        { label: 'Pages', items: ['Prerendered on Netlify', 'Small client islands for the game'] },
+      ],
+    },
+    codeTour: [
+      {
+        label: 'scripts/check-architecture.mjs',
+        url: 'https://github.com/F3KT0R/portfolio/blob/main/scripts/check-architecture.mjs',
+        why: 'The layer rules as a lint step: a wrong import fails CI instead of a code review.',
+      },
+      {
+        label: 'src/game/achievements.ts',
+        url: 'https://github.com/F3KT0R/portfolio/blob/main/src/game/achievements.ts',
+        why: 'The achievement engine as a pure reducer, unit-tested without a browser.',
+      },
+      {
+        label: 'src/content/content.test.ts',
+        url: 'https://github.com/F3KT0R/portfolio/blob/main/src/content/content.test.ts',
+        why: 'Cross-references a schema cannot see: unknown skills, unproven claims, missing screenshots.',
+      },
+    ],
+    tradeoffs: [
+      {
+        chose: 'Content as validated TypeScript',
+        over: 'Pulling projects from the GitHub API',
+        because:
+          'Private and client work can be described, and a typo fails the build rather than the page.',
+        cost: 'Every content change is a commit.',
+      },
+      {
+        chose: 'CSS Modules with design tokens',
+        over: 'Tailwind',
+        because: 'A distinctive visual system with themes and guard scripts, not utility defaults.',
+        cost: 'More CSS to write and maintain.',
+      },
     ],
     journal: [
       {
@@ -525,6 +836,7 @@ const questData = [
     end: '2023-03',
     difficulty: 2,
     sigil: 'eye',
+    plain: 'My university thesis: an app for browsing films and series.',
     summary:
       'A React progressive web app for browsing films and series on The Movie Database API — my BSc thesis — later rebuilt as v2.0 with cleaner components and shared data hooks.',
     stack: ['react', 'css', 'integrations'],

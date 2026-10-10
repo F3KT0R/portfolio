@@ -59,7 +59,7 @@ export function QuestCard({
             <RedactedText>{quest.giver}</RedactedText> · {formatPeriod(quest.start, quest.end)}
           </p>
           <p className={styles.summary}>
-            <RedactedText>{quest.summary}</RedactedText>
+            <RedactedText>{quest.plain}</RedactedText>
           </p>
           <TagList label="Stack">
             {stack.map((skill) => (

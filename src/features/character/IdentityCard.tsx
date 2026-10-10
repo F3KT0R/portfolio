@@ -5,6 +5,7 @@ import { levelFromCareer, XP_PER_LEVEL } from '@/game'
 import { routes } from '@/lib/routes'
 import { ButtonLink, Frame, Meter } from '@/ui'
 import styles from './IdentityCard.module.css'
+import { SheetStats } from './SheetStats'
 
 const nextLevelFormat = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric',
@@ -75,6 +76,8 @@ export function IdentityCard({ actions }: { actions?: ReactNode }) {
           </dl>
         </div>
       </div>
+
+      <SheetStats />
 
       <div className={styles.pitch}>
         {character.pitch.map((line) => (

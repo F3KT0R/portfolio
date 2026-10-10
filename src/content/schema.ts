@@ -125,6 +125,9 @@ export const questSchema = z.object({
   difficulty: z.number().int().min(1).max(5),
   /** Sigil drawn on the quest banner; an icon name from ui/icons. */
   sigil: z.enum(iconNames),
+  /** One sentence for non-technical readers: the outcome, no jargon. */
+  plain: z.string().trim().min(20).max(180),
+  /** The technical summary. */
   summary: sentence,
   stack: z.array(slug).min(1),
   objectives: z.array(sentence).min(1),
@@ -144,6 +147,31 @@ export const questSchema = z.object({
       lesson: sentence,
     })
     .optional(),
+  /** The system as tiers, read left to right (top to bottom on phones). */
+  architecture: z
+    .object({
+      tiers: z.array(z.object({ label: sentence, items: z.array(sentence).min(1) })).min(2),
+    })
+    .optional(),
+  /** The few files that say the most, linked at a fixed commit (or main for this repo). */
+  codeTour: z
+    .array(
+      z.object({
+        label: sentence,
+        url: z
+          .string()
+          .regex(
+            /^https:\/\/github\.com\/F3KT0R\/[\w.-]+\/blob\/([0-9a-f]{40}|main)\/[^\s#]+(#L\d+)?$/,
+            'a GitHub blob link pinned to a commit',
+          ),
+        why: sentence,
+      }),
+    )
+    .default([]),
+  /** Decisions with the road not taken — and what the choice costs. */
+  tradeoffs: z
+    .array(z.object({ chose: sentence, over: sentence, because: sentence, cost: sentence }))
+    .default([]),
   journal: z
     .array(z.object({ heading: sentence, paragraphs: z.array(sentence).min(1) }))
     .default([]),

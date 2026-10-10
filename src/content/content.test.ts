@@ -180,3 +180,34 @@ describe('screenshots', () => {
     },
   )
 })
+
+describe('quests for every reader', () => {
+  // Words that mean nothing to a recruiter. The plain line must work without them.
+  const jargon =
+    /\b(API|APIs|Next\.js|React|Fastify|Prisma|TypeScript|Docker|GraphQL|CI|webhook|Postgres|Zod|SSR|hydration|monorepo|repo)\b/i
+
+  it('have a plain-language line without jargon', () => {
+    for (const q of quests) expect(q.plain.match(jargon)?.[0], q.slug).toBeUndefined()
+  })
+
+  it('link code pinned to a commit, or to files that exist in this repo', () => {
+    for (const q of quests) {
+      for (const stop of q.codeTour) {
+        const match = stop.url.match(
+          /^https:\/\/github\.com\/F3KT0R\/([\w.-]+)\/blob\/([^/]+)\/([^#]+)/,
+        )
+        expect(match, stop.url).not.toBeNull()
+        const [, repo, ref, file] = match!
+        if (repo === 'portfolio') {
+          expect(fs.existsSync(path.join(process.cwd(), file!)), stop.url).toBe(true)
+        } else {
+          expect(ref, `${stop.url} must be pinned to a commit`).toMatch(/^[0-9a-f]{40}$/)
+        }
+      }
+    }
+  })
+
+  it('keep code tours away from private and classified work', () => {
+    for (const q of quests) if (!q.links.repo) expect(q.codeTour, q.slug).toEqual([])
+  })
+})

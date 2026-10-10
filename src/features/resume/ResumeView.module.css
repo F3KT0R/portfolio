@@ -150,10 +150,6 @@
     break-inside: avoid;
   }
 
-  .stackLine {
-    display: none;
-  }
-
   .footer {
     display: none;
   }

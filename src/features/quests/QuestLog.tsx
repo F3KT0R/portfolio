@@ -14,7 +14,7 @@ export function QuestLog() {
         const heading = kindHeading[kind]
         return (
           <section key={kind} aria-labelledby={`quests-${kind}`} className={styles.section}>
-            <SectionHeading id={`quests-${kind}`}>
+            <SectionHeading id={`quests-${kind}`} gloss={heading.gloss}>
               {heading.title} <span className={styles.count}>({list.length})</span>
             </SectionHeading>
             <p className={styles.lead}>{heading.lead}</p>

@@ -1,0 +1,39 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-5) 0 0;
+}
+
+@media (width >= 48rem) {
+  .stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* The number reads first, the label second; the source keeps dt before dd. */
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border) solid var(--line);
+  border-left: var(--pixel) solid var(--accent);
+  background: var(--surface-inset);
+}
+
+/* Numbers in mono: the pixel face draws 5 like an S. */
+.value {
+  margin: 0;
+  font-family: var(--font-data);
+  font-weight: 500;
+  font-size: var(--step-3);
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.label {
+  font-size: var(--step--1);
+  line-height: 1.35;
+  color: var(--text-soft);
+}

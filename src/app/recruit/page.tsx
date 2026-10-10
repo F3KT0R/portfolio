@@ -2,6 +2,7 @@ import { character } from '@/content'
 import { RecruitForm } from '@/features/recruit'
 import { CvLink } from '@/features/resume'
 import { pageMetadata } from '@/features/seo'
+import { gloss } from '@/lib/glossary'
 import { routes } from '@/lib/routes'
 import { site } from '@/lib/site'
 import { Frame, PageHeader, PanelGrid, panelWide } from '@/ui'
@@ -20,6 +21,7 @@ export default function RecruitPage() {
         icon="flag"
         eyebrow={character.status.available ? 'Recruit · available' : 'Recruit'}
         title="Recruit to your party"
+        gloss={gloss.recruit}
         lead="A role, a freelance build or a collaboration: tell me what you are working on and where I could help."
       />
       <PanelGrid>

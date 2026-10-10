@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Codex } from '@/features/progress'
 import { pageMetadata } from '@/features/seo'
+import { gloss } from '@/lib/glossary'
 import { routes } from '@/lib/routes'
 import { Frame, Kbd, PageHeader, PanelGrid, panelWide } from '@/ui'
 import styles from './page.module.css'
@@ -18,6 +19,7 @@ export default function CodexPage() {
         icon="star"
         eyebrow="Codex · your progress"
         title="Codex"
+        gloss={gloss.codex}
         lead="You are playing too. Exploring the site unlocks achievements; they live only in this browser and never leave it."
       />
       <PanelGrid>

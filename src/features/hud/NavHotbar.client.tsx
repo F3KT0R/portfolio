@@ -45,6 +45,7 @@ export function NavHotbar() {
                 className={styles.slot}
                 aria-current={current ? 'page' : undefined}
                 aria-keyshortcuts={String(index + 1)}
+                title={`${item.label} — ${item.plain}`}
               >
                 <PixelIcon name={item.icon} size={20} />
                 <span className={styles.label}>{item.label}</span>

@@ -28,6 +28,7 @@ export function buildCommands(): Command[] {
       id: `nav-${n.key}`,
       group: 'Go to' as const,
       label: n.label,
+      keywords: n.plain,
       action: { kind: 'navigate' as const, href: n.href },
     })),
     {

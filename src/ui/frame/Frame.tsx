@@ -7,6 +7,8 @@ type Props<T extends ElementType> = {
   as?: T
   /** Label in the frame's title bar. */
   title?: ReactNode
+  /** The plain-language meaning of a game term in the title, e.g. "strengths". */
+  gloss?: string
   /** Small text at the right end of the title bar. */
   meta?: ReactNode
   /** Id for the title, so a <section> can be labelled by it. */
@@ -27,6 +29,7 @@ type Props<T extends ElementType> = {
 export function Frame<T extends ElementType = 'section'>({
   as,
   title,
+  gloss,
   meta,
   titleId,
   titleAs: TitleTag = 'h2',
@@ -48,6 +51,7 @@ export function Frame<T extends ElementType = 'section'>({
         <div className={styles.bar}>
           <TitleTag id={titleId} className={styles.title}>
             {title}
+            {gloss ? <span className={styles.gloss}> · {gloss}</span> : null}
           </TitleTag>
           {meta ? <span className={styles.meta}>{meta}</span> : null}
         </div>

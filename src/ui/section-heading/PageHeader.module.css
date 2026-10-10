@@ -61,3 +61,13 @@
     transparent var(--pixel) calc(var(--pixel) * 2)
   );
 }
+
+/* Plain words beside a game term, in the body face so they read as a translation. */
+.gloss {
+  font-family: var(--font-body);
+  font-size: max(0.45em, var(--step--1));
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  vertical-align: middle;
+}
