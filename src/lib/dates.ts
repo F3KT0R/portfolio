@@ -18,5 +18,6 @@ export function formatMonth(value: string) {
 }
 
 export function formatPeriod(start: string, end?: string) {
+  if (end === start) return formatMonth(start)
   return `${formatMonth(start)} – ${end ? formatMonth(end) : 'present'}`
 }

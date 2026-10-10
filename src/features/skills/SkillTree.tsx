@@ -6,6 +6,7 @@ import {
   rarities,
   rarityMeaning,
   skillBranches,
+  skillBranchLabels,
   type SkillBranch,
 } from '@/content'
 import type { IconName } from '@/lib/icon-names'
@@ -14,12 +15,12 @@ import { Frame, ItemCard, PanelGrid, panelWide, PixelIcon, spansRow } from '@/ui
 import { buildTree, type SkillNode } from './tree'
 import styles from './SkillTree.module.css'
 
-const branchMeta: Record<SkillBranch, { title: string; icon: IconName }> = {
-  frontend: { title: 'Frontend', icon: 'sword' },
-  backend: { title: 'Backend & data', icon: 'key' },
-  quality: { title: 'Quality', icon: 'shield' },
-  delivery: { title: 'Delivery', icon: 'bolt' },
-  craft: { title: 'Craft & people', icon: 'quill' },
+const branchIcon: Record<SkillBranch, IconName> = {
+  frontend: 'sword',
+  backend: 'key',
+  quality: 'shield',
+  delivery: 'bolt',
+  craft: 'quill',
 }
 
 export function RarityLegend() {
@@ -43,7 +44,6 @@ export function SkillTree() {
   return (
     <PanelGrid>
       {skillBranches.map((branch, index) => {
-        const meta = branchMeta[branch]
         const wide = spansRow(index, skillBranches.length)
         return (
           <Frame
@@ -51,8 +51,8 @@ export function SkillTree() {
             className={wide ? panelWide : undefined}
             title={
               <span className={styles.branchTitle}>
-                <PixelIcon name={meta.icon} size={16} />
-                {meta.title}
+                <PixelIcon name={branchIcon[branch]} size={16} />
+                {skillBranchLabels[branch]}
               </span>
             }
             titleId={`branch-${branch}`}

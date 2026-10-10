@@ -18,6 +18,7 @@ export {
   rarities,
   rarityMeaning,
   skillBranches,
+  skillBranchLabels,
   loadoutSlots,
   questKinds,
   type Achievement,

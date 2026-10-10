@@ -1,20 +1,26 @@
-/* Deliberately plain: body font, no frames, one column, prints on paper. */
-.resume {
+/*
+ * One layout, two media. On screen it sits on the site's surface; printed it
+ * is a white A4 page (scripts/generate-cv.mjs prints it with the parchment
+ * theme's ink colours). Mobile first: one column, the sidebar after the story.
+ */
+
+.cv {
   display: grid;
   gap: var(--space-6);
-  max-width: 50rem;
+  max-width: 60rem;
   padding: var(--space-6) 0;
   margin-inline: auto;
 }
 
+/* ── Header ── */
 .header {
   display: grid;
   gap: var(--space-4);
-  padding-bottom: var(--space-5);
-  border-bottom: var(--border) solid var(--line-strong);
+  padding-bottom: var(--space-4);
+  border-bottom: calc(var(--border) * 1.5) solid var(--accent);
 }
 
-@media (width >= 40rem) {
+@media (width >= 48rem) {
   .header {
     grid-template-columns: 1fr auto;
     align-items: end;
@@ -23,60 +29,95 @@
 
 .name {
   font-size: var(--step-4);
+  line-height: 1;
 }
 
 .role {
+  margin-top: var(--space-2);
   font-size: var(--step-1);
   color: var(--accent);
 }
 
-.meta {
-  font-size: var(--step--1);
-  color: var(--text-muted);
-}
-
 .contact {
   display: grid;
-  gap: var(--space-1);
+  gap: 2px;
   font-family: var(--font-data);
   font-size: var(--step--1);
   list-style: none;
 }
 
+@media (width >= 48rem) {
+  .contact {
+    text-align: right;
+  }
+}
+
+.contact a {
+  text-decoration: none;
+}
+
+/* ── Columns ── */
+.columns {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (width >= 56rem) {
+  .columns {
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    gap: var(--space-7);
+  }
+
+  .side {
+    padding-left: var(--space-5);
+    border-left: var(--border) solid var(--line);
+  }
+}
+
+.main,
+.side {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+/* ── Sections ── */
 .section {
   display: grid;
   gap: var(--space-3);
 }
 
-/* Small uppercase labels in mono: the pixel face is unreadable at this size. */
-.section h2 {
+.sectionTitle {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
   font-family: var(--font-data);
   font-size: var(--step--1);
   font-weight: 500;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  color: var(--accent);
   text-transform: uppercase;
 }
 
-.inline {
-  line-height: 1.9;
+.sectionTitle::after {
+  flex: 1;
+  height: 1px;
+  content: '';
+  background: var(--line);
 }
 
-.muted {
-  color: var(--text-muted);
+.profile {
+  color: var(--text-soft);
 }
 
-.more {
-  font-size: var(--step--1);
-}
-
+/* ── Entries (experience and projects) ── */
 .entries {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-4);
   list-style: none;
 }
 
-.entries > li {
+.entry {
   display: grid;
   gap: var(--space-1);
 }
@@ -84,35 +125,100 @@
 .entryHead {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 var(--space-2);
+  gap: 0 var(--space-3);
   align-items: baseline;
+  justify-content: space-between;
+}
+
+.entryTitle {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.entryTitle a {
+  text-decoration: none;
 }
 
 .when {
-  margin-left: auto;
   font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.org {
   font-size: var(--step--1);
   color: var(--text-muted);
 }
 
-.stackLine {
+.bullets {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--space-1);
+  padding-left: var(--space-5);
+  color: var(--text-soft);
+}
+
+.bullets li::marker {
+  color: var(--accent);
+}
+
+.projectsLine,
+.stack {
+  font-size: var(--step--1);
   color: var(--text-muted);
 }
 
+.plain {
+  color: var(--text-soft);
+}
+
+/* ── Sidebar ── */
 .facts {
   display: grid;
   gap: var(--space-1);
-  padding-left: var(--space-5);
+  margin: 0;
+  font-size: var(--step--1);
+}
+
+.facts dt {
+  margin-top: var(--space-2);
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.facts dd {
+  margin: 0;
   color: var(--text-soft);
 }
 
-.bullets {
+.skillGroup {
   display: grid;
-  gap: var(--space-1);
-  padding-left: var(--space-5);
-  color: var(--text-soft);
 }
 
+.plainList {
+  display: grid;
+  gap: 2px;
+  font-size: var(--step--1);
+  list-style: none;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.education {
+  display: grid;
+  gap: 2px;
+  font-size: var(--step--1);
+}
+
+/* ── Footer (screen only) ── */
 .footer {
   display: flex;
   flex-wrap: wrap;
@@ -122,62 +228,107 @@
   border-top: var(--border) solid var(--line);
 }
 
-/* The printed CV (scripts/generate-cv.mjs): dense enough for two A4 pages. */
+/* ── Print: the PDF CV ── */
 @media print {
-  .resume {
+  .cv {
     gap: var(--space-4);
     max-width: none;
     padding: 0;
-    font-size: 0.8rem;
-    line-height: 1.45;
+    font-size: 0.78rem;
+    line-height: 1.42;
   }
 
   .header {
+    grid-template-columns: 1fr auto;
+    align-items: end;
     padding-bottom: var(--space-3);
   }
 
   .name {
-    font-size: var(--step-3);
+    font-size: 2.1rem;
   }
 
   .role {
-    font-size: var(--step-0);
+    margin-top: var(--space-1);
+    font-size: 0.95rem;
   }
 
-  /* Sections may span pages; single entries and headings may not. */
-  .section {
-    gap: var(--space-2);
+  .contact {
+    text-align: right;
   }
 
-  .section h2 {
+  .columns {
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    gap: var(--space-5);
+  }
+
+  .side {
+    padding-left: var(--space-4);
+    border-left: 1px solid var(--line);
+  }
+
+  /*
+   * Inside the columns, plain block flow: Chromium splits nested grids across
+   * a page break unreliably (entries overlapped), blocks paginate cleanly.
+   */
+  .main,
+  .side,
+  .section,
+  .entries,
+  .entry {
+    display: block;
+  }
+
+  .section + .section {
+    margin-top: var(--space-4);
+  }
+
+  .sectionTitle {
+    margin-bottom: var(--space-2);
+    font-size: 0.85em;
     break-after: avoid;
   }
 
-  .entries {
-    gap: var(--space-3);
+  .entry + .entry {
+    margin-top: var(--space-3);
   }
 
-  .entries > li {
+  .entry,
+  .side .section {
     break-inside: avoid;
   }
 
-  .footer,
-  .more {
+  /* One body size for every running text on the page. */
+  .profile,
+  .bullets,
+  .plain {
+    font-size: 0.95em;
+  }
+
+  .profile + .profile {
+    margin-top: var(--space-1);
+  }
+
+  /* Sizes relative to the page's base, so both columns share one scale. */
+  .entryTitle {
+    font-size: 1.08em;
+  }
+
+  .org,
+  .when,
+  .stack,
+  .projectsLine,
+  .facts,
+  .plainList,
+  .education {
+    font-size: 0.92em;
+  }
+
+  .facts dt {
+    font-size: 0.82em;
+  }
+
+  .footer {
     display: none;
-  }
-
-  /* On paper the four facts run on as one line. */
-  .facts {
-    display: block;
-    padding: 0;
-    list-style: none;
-  }
-
-  .facts li {
-    display: inline;
-  }
-
-  .facts li + li::before {
-    content: ' · ';
   }
 }

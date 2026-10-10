@@ -31,6 +31,15 @@ export const skillBranches = ['frontend', 'backend', 'quality', 'delivery', 'cra
 export const skillBranchSchema = z.enum(skillBranches)
 export type SkillBranch = z.infer<typeof skillBranchSchema>
 
+/** Display names of the skill branches, shared by the skill tree and the CV. */
+export const skillBranchLabels: Record<SkillBranch, string> = {
+  frontend: 'Frontend',
+  backend: 'Backend & data',
+  quality: 'Quality',
+  delivery: 'Delivery',
+  craft: 'Craft & people',
+}
+
 export const skillSchema = z.object({
   name: sentence,
   branch: skillBranchSchema,

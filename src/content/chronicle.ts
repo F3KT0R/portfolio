@@ -13,7 +13,7 @@ const chronicleData = [
   {
     id: 'freelance-agency',
     kind: 'freelance',
-    org: 'Freelance, via Dušan Selaković’s agency',
+    org: 'Dušan Selaković’s agency',
     role: 'Freelance developer',
     place: 'Remote',
     start: '2026-09',
