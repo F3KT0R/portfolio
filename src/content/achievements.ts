@@ -114,6 +114,23 @@ const achievementData = [
     condition: { kind: 'event', event: 'party:recruited' },
   },
   {
+    id: 'fresh-roll',
+    title: 'Fresh Roll',
+    description: 'Rolled a new companion.',
+    icon: 'gem',
+    xp: 5,
+    condition: { kind: 'event', event: 'companion:reroll' },
+  },
+  {
+    id: 'lone-wolf',
+    title: 'Lone Wolf',
+    description: 'Sent your companion home to rest.',
+    hidden: true,
+    icon: 'flag',
+    xp: 5,
+    condition: { kind: 'event', event: 'companion:toggle' },
+  },
+  {
     id: 'old-school',
     title: 'Old School',
     description: '↑ ↑ ↓ ↓ ← → ← → B A',

@@ -34,7 +34,7 @@ export function NavHotbar() {
   }, [router])
 
   return (
-    <nav className={styles.nav} aria-label="Primary">
+    <nav className={styles.nav} aria-label="Primary" data-hud="bottom">
       <ul className={styles.list}>
         {primaryNav.map((item, index) => {
           const current = isActive(pathname, item.href)

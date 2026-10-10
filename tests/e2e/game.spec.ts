@@ -153,3 +153,38 @@ test.describe('call requests', () => {
     expect(body).not.toContain('day=')
   })
 })
+
+test.describe('companion', () => {
+  const companion = (page: Page) => page.locator('[data-companion]')
+
+  test('a companion joins, stands on a panel and stays out of the way', async ({ page }) => {
+    await page.goto('/')
+    await toast(page, 'Press Start')
+    await expect(companion(page)).toHaveCSS('opacity', '1')
+    await expect(companion(page)).toHaveAttribute('aria-hidden', 'true')
+    await expect(companion(page)).toHaveCSS('pointer-events', 'none')
+  })
+
+  test('the same companion comes back after a reload', async ({ page }) => {
+    await page.goto('/codex')
+    const name = page
+      .locator('section[aria-labelledby="companion"]')
+      .getByText(/ the (Knight|Mage|Rogue|Ranger)$/)
+    const before = await name.textContent()
+    await page.reload()
+    await expect(name).toHaveText(before ?? '')
+  })
+
+  test('the codex rolls a new one and can send it home', async ({ page }) => {
+    await page.goto('/codex')
+    // Hydrated once the companion is on the page.
+    await expect(companion(page)).toHaveCount(1)
+    await page.getByRole('button', { name: 'Roll a new companion' }).click()
+    await toast(page, 'Fresh Roll')
+    await page.getByRole('button', { name: /^Send .+ home$/ }).click()
+    await expect(companion(page)).toHaveCount(0)
+    await page.reload()
+    await expect(page.getByRole('button', { name: /^Call .+ back$/ })).toBeVisible()
+    await expect(companion(page)).toHaveCount(0)
+  })
+})

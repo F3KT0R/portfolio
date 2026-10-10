@@ -1,0 +1,96 @@
+/*
+ * Positioned in document coordinates (the script sets the transform), so it
+ * scrolls with the panel it stands on. Never catches a click.
+ */
+.companion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fast) linear;
+}
+
+.body {
+  width: calc(12px * 2);
+}
+
+.sprite {
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 48rem) {
+  .body {
+    width: calc(12px * 3);
+  }
+}
+
+.facing[data-facing='left'] {
+  transform: scaleX(-1);
+}
+
+/* Standing still is not frozen: a slow two-step breath. */
+.body:not([data-walking]) .sprite {
+  animation: breathe 1.6s steps(1, end) infinite;
+}
+
+@keyframes breathe {
+  50% {
+    transform: translateY(1px);
+  }
+}
+
+/* The speech bubble, anchored above the sprite's right edge. */
+.bubble {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + var(--space-2));
+  width: max-content;
+  max-width: min(15rem, 70vw);
+  padding: var(--space-2) var(--space-3);
+  border: var(--border) solid var(--line-strong);
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-hard);
+  animation: pop var(--dur-base) var(--ease-pixel);
+}
+
+/* The tail: a small square pointing down at the speaker. */
+.bubble::after {
+  position: absolute;
+  top: 100%;
+  right: var(--space-3);
+  width: var(--pixel);
+  height: calc(var(--pixel) * 2);
+  content: '';
+  background: var(--line-strong);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(var(--pixel));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .companion {
+    transition: none;
+  }
+
+  .body .sprite,
+  .bubble {
+    animation: none;
+  }
+}
+
+@media print {
+  .companion {
+    display: none;
+  }
+}

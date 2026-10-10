@@ -55,6 +55,15 @@ window CustomEvent ──▶ ProgressTracker (features/progress)
 
 Because features announce events instead of calling the progress feature, removing `features/progress` leaves every other feature working.
 
+### The companion
+
+Every visitor gets a pixel adventurer that walks to whichever panel they are reading.
+
+- `game/companion.ts` (pure) rolls the character from a seed: class, name, colours and a two-frame 12×16 sprite assembled from head, body, leg and prop parts. The same seed always draws the same companion, so only `{ seed, hidden }` is stored.
+- `features/companion/waypoints.ts` (pure) picks the panel to stand on from plain rectangles: the top edge nearest the reading line, with stickiness so small scrolls do not make it pace.
+- `Companion.client.tsx` does the DOM work: it reads `[data-waypoint]` elements (every `Frame` panel is one; `waypoint="boss"` and friends give it something to say), avoids the `[data-hud]` header and hotbar, and moves with the Web Animations API.
+- It is decorative: `aria-hidden`, `pointer-events: none`, hidden in print, and it teleports instead of walking under `prefers-reduced-motion`. The Codex card and the command palette control it through `companion:*` events on the bus.
+
 Tibor's own level is not part of this loop: `game/level.ts` derives it from `character.careerStart` — one level per year of professional work, XP filling towards the next anniversary.
 
 ## Styling

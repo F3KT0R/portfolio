@@ -17,6 +17,11 @@ type Props<T extends ElementType> = {
   /** Tints the rivets and title bar with a rarity colour. */
   rarity?: Rarity
   variant?: 'panel' | 'inset'
+  /**
+   * What the panel is about, for anything that walks the page (the visitor's
+   * companion). Every panel is a waypoint; an inset frame only when given one.
+   */
+  waypoint?: string
   className?: string
   children: ReactNode
 } & Omit<ComponentPropsWithoutRef<T>, 'as' | 'title' | 'children' | 'className'>
@@ -35,6 +40,7 @@ export function Frame<T extends ElementType = 'section'>({
   titleAs: TitleTag = 'h2',
   rarity,
   variant = 'panel',
+  waypoint,
   className,
   children,
   ...rest
@@ -44,6 +50,7 @@ export function Frame<T extends ElementType = 'section'>({
     <Tag
       className={cx(styles.frame, styles[variant], className)}
       data-rarity={rarity}
+      data-waypoint={waypoint ?? (variant === 'panel' ? 'panel' : undefined)}
       aria-labelledby={title && titleId && Tag === 'section' ? titleId : undefined}
       {...rest}
     >

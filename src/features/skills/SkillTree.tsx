@@ -48,6 +48,7 @@ export function SkillTree() {
         return (
           <Frame
             key={branch}
+            waypoint="skills"
             className={wide ? panelWide : undefined}
             title={
               <span className={styles.branchTitle}>

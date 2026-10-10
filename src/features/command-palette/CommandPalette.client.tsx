@@ -103,6 +103,10 @@ export function CommandPalette() {
         toggleTheme()
         close()
         return
+      case 'event':
+        emitGameEvent(action.name)
+        setNotice(action.done)
+        return
       case 'copy':
         try {
           await navigator.clipboard.writeText(action.text)

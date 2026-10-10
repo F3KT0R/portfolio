@@ -1,0 +1,34 @@
+.sprite {
+  display: block;
+  flex: none;
+  overflow: visible;
+  image-rendering: pixelated;
+
+  /* A one-pixel rim keeps the dark outline readable on the dungeon floor. */
+  filter: drop-shadow(0 0 1px var(--line-strong));
+}
+
+.stride {
+  visibility: hidden;
+}
+
+/* Walking: the two frames take turns, four steps a second. */
+[data-walking] .stand {
+  animation: step-stand 250ms steps(1, end) infinite;
+}
+
+[data-walking] .stride {
+  animation: step-stride 250ms steps(1, end) infinite;
+}
+
+@keyframes step-stand {
+  50% {
+    visibility: hidden;
+  }
+}
+
+@keyframes step-stride {
+  50% {
+    visibility: visible;
+  }
+}

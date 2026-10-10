@@ -19,6 +19,7 @@ export function LookingForPanel({ className }: { className?: string }) {
       title="Looking for"
       gloss={gloss.lookingFor}
       titleId="looking-for"
+      waypoint="looking-for"
       rarity="uncommon"
       className={className}
     >
