@@ -1,0 +1,79 @@
+.banner {
+  --banner-color: var(--accent);
+
+  display: grid;
+  flex: none;
+  place-items: start center;
+  color: var(--surface-0);
+  background: var(--banner-color);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+}
+
+.banner[data-kind='side'] {
+  --banner-color: var(--rarity-rare);
+}
+
+.banner[data-kind='archive'] {
+  --banner-color: var(--rarity-common);
+}
+
+.md {
+  width: 3.5rem;
+  height: 4.75rem;
+  padding-top: var(--space-3);
+}
+
+.lg {
+  width: 5rem;
+  height: 6.75rem;
+  padding-top: var(--space-4);
+}
+
+.status {
+  --status-color: var(--text-soft);
+
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--status-color);
+  white-space: nowrap;
+}
+
+.status::before {
+  width: 0.55em;
+  height: 0.55em;
+  content: '';
+  background: var(--status-color);
+}
+
+.status[data-status='active'] {
+  --status-color: var(--ok);
+}
+
+.status[data-status='launching'] {
+  --status-color: var(--rarity-legendary);
+}
+
+.status[data-status='live'] {
+  --status-color: var(--ok);
+}
+
+.status[data-status='completed'] {
+  --status-color: var(--rarity-rare);
+}
+
+.difficulty {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.on {
+  color: var(--danger);
+}
+
+.off {
+  color: var(--line-strong);
+}

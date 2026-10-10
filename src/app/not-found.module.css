@@ -1,0 +1,32 @@
+.wrap {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  padding: var(--space-8) 0;
+  text-align: center;
+}
+
+.icon {
+  color: var(--text-muted);
+}
+
+.code {
+  font-family: var(--font-data);
+  color: var(--danger);
+}
+
+.title {
+  font-size: var(--step-4);
+}
+
+.text {
+  max-width: 40ch;
+  color: var(--text-soft);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}

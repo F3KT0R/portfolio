@@ -1,0 +1,160 @@
+/* Deliberately plain: body font, no frames, one column, prints on paper. */
+.resume {
+  display: grid;
+  gap: var(--space-6);
+  max-width: 50rem;
+  padding: var(--space-6) 0;
+  margin-inline: auto;
+}
+
+.header {
+  display: grid;
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+  border-bottom: var(--border) solid var(--line-strong);
+}
+
+@media (width >= 40rem) {
+  .header {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+}
+
+.name {
+  font-size: var(--step-4);
+}
+
+.role {
+  font-size: var(--step-1);
+  color: var(--accent);
+}
+
+.meta {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.contact {
+  display: grid;
+  gap: var(--space-1);
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  list-style: none;
+}
+
+.section {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* Small uppercase labels in mono: the pixel face is unreadable at this size. */
+.section h2 {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.inline {
+  line-height: 1.9;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.more {
+  font-size: var(--step--1);
+}
+
+.entries {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.entries > li {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.entryHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-2);
+  align-items: baseline;
+}
+
+.when {
+  margin-left: auto;
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.stackLine {
+  color: var(--text-muted);
+}
+
+.bullets {
+  display: grid;
+  gap: var(--space-1);
+  padding-left: var(--space-5);
+  color: var(--text-soft);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  padding-top: var(--space-5);
+  border-top: var(--border) solid var(--line);
+}
+
+/* The printed CV (scripts/generate-cv.mjs): dense enough for two A4 pages. */
+@media print {
+  .resume {
+    gap: var(--space-4);
+    max-width: none;
+    padding: 0;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .header {
+    padding-bottom: var(--space-3);
+  }
+
+  .name {
+    font-size: var(--step-3);
+  }
+
+  .role {
+    font-size: var(--step-0);
+  }
+
+  .section {
+    gap: var(--space-2);
+    break-inside: avoid;
+  }
+
+  .entries {
+    gap: var(--space-3);
+  }
+
+  .entries > li {
+    break-inside: avoid;
+  }
+
+  .stackLine {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+}

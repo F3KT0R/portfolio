@@ -1,0 +1,9 @@
+/* A censor bar the width of the words it replaces, in the current text colour. */
+.bar {
+  display: inline-block;
+  width: calc(var(--chars) * 1ch);
+  height: 0.95em;
+  vertical-align: -0.12em;
+  background: currentcolor;
+  cursor: help;
+}

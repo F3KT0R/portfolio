@@ -1,42 +1,48 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "3.0.0",
   "private": true,
+  "type": "module",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.12"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "lint": "eslint . && npm run lint:css && npm run check:architecture && npm run check:tokens && npm run check:mobile-first",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "check:tokens": "node scripts/check-color-tokens.mjs",
+    "check:mobile-first": "node scripts/check-mobile-first.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "cv": "npm run build && node scripts/generate-cv.mjs",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {
-    "next": "16.1.6",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "gray-matter": "^4.0.3",
-    "next-mdx-remote": "^5.0.0",
-    "react-markdown": "^10.1.0",
-    "react-icons": "^5.5.0",
-    "remark-gfm": "^4.0.0",
-    "sass": "^1.97.3",
-    "sharp": "^0.34.5",
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@playwright/test": "^1.50.1",
-    "@types/node": "^25.2.2",
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^22.10.2",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "eslint": "10.0.0",
-    "eslint-config-next": "16.1.6",
-    "prettier": "^3.5.1",
-    "typescript": "^5.7.3"
-  },
-  "config": {
-    "omit": "optional"
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.3.8",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.9",
+    "sharp": "^0.35.5",
+    "stylelint": "^17.16.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.0"
   }
 }

@@ -1,0 +1,117 @@
+/* Phones have no keyboard shortcut to advertise. */
+.triggerKeys {
+  display: none;
+  gap: var(--space-1);
+}
+
+@media (width >= 40rem) {
+  .triggerKeys {
+    display: inline-flex;
+  }
+}
+
+.dialog {
+  width: min(36rem, calc(100vw - 2 * var(--gutter)));
+  max-height: min(32rem, 80dvh);
+  padding: 0;
+  margin: 12dvh auto auto;
+  border: var(--border) solid var(--accent-line);
+  color: var(--text);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-hard);
+}
+
+.dialog::backdrop {
+  background: color-mix(in srgb, var(--surface-0) 75%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.dialog[open] {
+  animation: rise var(--dur-base) var(--ease-pixel);
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  max-height: inherit;
+}
+
+.search {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border) solid var(--line);
+  background: var(--surface-2);
+}
+
+.searchIcon {
+  color: var(--accent);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-1) 0;
+  border: 0;
+  font-family: var(--font-data);
+  background: transparent;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.list {
+  overflow-y: auto;
+  padding: var(--space-2) 0;
+}
+
+.group + .group {
+  margin-top: var(--space-2);
+}
+
+.groupLabel {
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.option {
+  padding: var(--space-2) var(--space-4);
+  border-left: var(--pixel) solid transparent;
+  cursor: pointer;
+}
+
+.option[aria-selected='true'] {
+  color: var(--accent-strong);
+  border-left-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.option[aria-selected='true']::before {
+  content: '▸ ';
+}
+
+.empty {
+  padding: var(--space-4);
+  color: var(--text-muted);
+}
+
+.footer {
+  padding: var(--space-2) var(--space-4);
+  border-top: var(--border) solid var(--line);
+  font-size: var(--step--2);
+  color: var(--text-muted);
+  background: var(--surface-2);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-4));
+  }
+}

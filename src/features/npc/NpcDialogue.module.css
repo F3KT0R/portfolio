@@ -1,0 +1,91 @@
+/* The classic text box: portrait on the left, a name plate, the line, and a
+   blinking marker that says "there is more" — here, the rest of the site. */
+.box {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  margin: 0;
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  border: var(--border) solid var(--accent-line);
+  background: var(--surface-2);
+  box-shadow:
+    inset 0 0 0 var(--border) var(--surface-2),
+    inset 0 0 0 calc(var(--border) * 1.5) var(--line),
+    var(--shadow-hard);
+}
+
+.portrait {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: var(--border) solid var(--line-strong);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+.body {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.speaker {
+  display: grid;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--accent);
+}
+
+.role {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.quote {
+  margin: 0;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.quote p::before {
+  content: '“';
+}
+
+.quote p::after {
+  content: '”';
+}
+
+.quest {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.next {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-2);
+  font-size: var(--step--1);
+  color: var(--accent);
+  animation: blink 1.2s var(--ease-pixel) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .next {
+    animation: none;
+  }
+}

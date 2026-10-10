@@ -1,0 +1,9 @@
+.icon {
+  flex: none;
+  fill: currentcolor;
+  image-rendering: pixelated;
+}
+
+.shade {
+  opacity: 0.4;
+}

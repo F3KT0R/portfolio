@@ -3,17 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
     <title>Forms</title>
   </head>
   <body>
     <!--
-      Netlify Forms detection workaround for Next.js (OpenNext adapter).
-      This file is used for deploy-time form detection only.
+      Netlify Forms detection for Next.js: Netlify reads this static file at
+      deploy time; the React form posts here. Keep the fields in sync with
+      src/features/recruit/recruit-schema.ts (checked by its unit test).
     -->
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="contact" />
+      <input name="intent" type="text" />
       <input name="name" type="text" />
       <input name="email" type="email" />
+      <input name="company" type="text" />
       <textarea name="message"></textarea>
       <input name="bot-field" type="text" />
     </form>

@@ -1,0 +1,99 @@
+.timeline {
+  display: grid;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.entry {
+  --entry-color: var(--accent);
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--space-4);
+}
+
+.entry[data-kind='freelance'] {
+  --entry-color: var(--rarity-epic);
+}
+
+.entry[data-kind='venture'] {
+  --entry-color: var(--rarity-legendary);
+}
+
+.entry[data-kind='education'] {
+  --entry-color: var(--rarity-rare);
+}
+
+/* The road between chapters: a dashed pixel line under each marker. */
+.entry:not(:last-child)::before {
+  position: absolute;
+  top: 3rem;
+  bottom: calc(var(--space-6) * -1);
+  left: calc(1.5rem - var(--border) / 2);
+  width: var(--border);
+  content: '';
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--line-strong) 0 var(--pixel),
+    transparent var(--pixel) calc(var(--pixel) * 2)
+  );
+}
+
+.marker {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: var(--border) solid var(--entry-color);
+  color: var(--entry-color);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-hard);
+}
+
+.body {
+  display: grid;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+.kicker {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--entry-color);
+}
+
+.org {
+  font-size: var(--step-2);
+}
+
+.org a {
+  text-decoration: none;
+}
+
+.role {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.summary {
+  max-width: 68ch;
+  color: var(--text-soft);
+}
+
+.highlights {
+  display: grid;
+  gap: var(--space-1);
+  max-width: 68ch;
+  padding-left: var(--space-5);
+  list-style: square;
+}
+
+.highlights li::marker {
+  color: var(--entry-color);
+}
+
+.quests {
+  font-size: var(--step--1);
+}

@@ -1,0 +1,19 @@
+.log {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.section {
+  display: grid;
+}
+
+.count {
+  font-family: var(--font-data);
+  font-size: var(--step-0);
+  color: var(--text-muted);
+}
+
+.lead {
+  margin: calc(var(--space-2) * -1) 0 var(--space-4);
+  color: var(--text-soft);
+}

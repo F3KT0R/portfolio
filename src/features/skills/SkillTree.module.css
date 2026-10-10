@@ -1,0 +1,140 @@
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  list-style: none;
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+}
+
+.legendItem {
+  --gem-color: var(--rarity-common);
+
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  color: var(--gem-color);
+}
+
+.legendItem::before {
+  width: 0.7em;
+  height: 0.7em;
+  content: '';
+  background: var(--gem-color);
+  transform: rotate(45deg);
+}
+
+.legendItem[data-rarity='uncommon'] {
+  --gem-color: var(--rarity-uncommon);
+}
+
+.legendItem[data-rarity='rare'] {
+  --gem-color: var(--rarity-rare);
+}
+
+.legendItem[data-rarity='epic'] {
+  --gem-color: var(--rarity-epic);
+}
+
+.legendItem[data-rarity='legendary'] {
+  --gem-color: var(--rarity-legendary);
+}
+
+.branchTitle {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.list,
+.spread,
+.children {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  list-style: none;
+}
+
+/* A full-row branch: each root and what it unlocks becomes a column. */
+@media (width >= 40rem) {
+  .spread {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: var(--space-2) var(--space-5);
+    align-items: start;
+  }
+}
+
+/* Children hang off a dotted pixel trunk. */
+.children {
+  margin: var(--space-2) 0 0 var(--space-3);
+  padding-left: var(--space-4);
+  border-left: var(--border) dotted var(--line-strong);
+}
+
+.node {
+  position: relative;
+  scroll-margin-top: calc(var(--hud-height) + var(--space-6));
+}
+
+.children > .node::before {
+  position: absolute;
+  top: 1.25rem;
+  left: calc(var(--space-4) * -1);
+  width: calc(var(--space-4) - var(--space-1));
+  height: var(--border);
+  content: '';
+  background: var(--line-strong);
+}
+
+.skill {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: var(--border) solid var(--line);
+  background: var(--surface-inset);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.skill:hover {
+  border-color: var(--item-color);
+}
+
+.node:target > .skill {
+  border-color: var(--item-color);
+  box-shadow: 0 0 0 var(--border) var(--item-color);
+}
+
+.gem {
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--item-color);
+  transform: rotate(45deg);
+}
+
+.skillName {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.since {
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  color: var(--text-muted);
+}
+
+.proofLabel {
+  margin-top: var(--space-3);
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.proof {
+  padding-left: var(--space-4);
+  list-style: square;
+}

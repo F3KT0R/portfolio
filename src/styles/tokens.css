@@ -1,0 +1,161 @@
+/*
+ * Design tokens, in three tiers:
+ *   1. Primitives: the only place raw colours exist. Mirrored in src/lib/palette.ts
+ *      (checked by scripts/check-color-tokens.mjs).
+ *   2. Semantic: what a colour is for (surface, text, line, accent, rarity). Themes
+ *      redefine this tier only.
+ *   3. Components read semantic tokens; they never name a primitive.
+ */
+
+/* ── 1. Primitives ─────────────────────────────────────────────────────── */
+:root {
+  --ink-950: #0d0c12;
+  --ink-900: #14131b;
+  --ink-850: #1a1923;
+  --ink-800: #211f2c;
+  --ink-700: #2e2b3c;
+  --ink-600: #433f55;
+  --ink-400: #8f89a6;
+  --bone-50: #f7f0e1;
+  --bone-100: #efe5cf;
+  --bone-200: #e4d6b6;
+  --bone-300: #cdb98f;
+  --bone-500: #6b5a3c;
+  --bone-700: #4a3c27;
+  --bone-900: #2a2118;
+  --gold-300: #f0c86a;
+  --gold-400: #e3b453;
+  --gold-600: #9c7016;
+  --gold-800: #6e4f0f;
+  --ember-400: #ef7d52;
+  --ember-700: #a63d15;
+  --moss-400: #6fcf6a;
+  --moss-700: #2c6e29;
+  --tide-400: #64a8ff;
+  --tide-700: #1f56b0;
+  --arcane-400: #bb8cf5;
+  --arcane-700: #6c34b3;
+  --flame-400: #f5a04a;
+  --flame-700: #96470a;
+  --ash-400: #a7a3b3;
+  --ash-700: #615c57;
+
+  /* Scale, type, motion: theme-independent. */
+  --font-display: var(--font-pixel), ui-monospace, monospace;
+  --font-body: var(--font-sans), system-ui, sans-serif;
+  --font-data: var(--font-mono), ui-monospace, monospace;
+
+  --step--2: 0.75rem;
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.5625rem;
+  --step-3: 1.953rem;
+  --step-4: clamp(2rem, 1.4rem + 2.6vw, 3.052rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  --page-max: 72rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --hud-height: 3.5rem;
+  --hotbar-height: 4.25rem;
+
+  --border: 2px;
+  --pixel: 4px;
+  --shadow-hard: var(--pixel) var(--pixel) 0 var(--shadow-color);
+
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 600ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* Stepped easing reads as sprite animation, not as a web fade. */
+  --ease-pixel: steps(4, end);
+}
+
+/* ── 2. Semantic: dungeon (dark, default and the no-JavaScript look) ───── */
+:root,
+:root[data-theme='dungeon'] {
+  color-scheme: dark;
+
+  --surface-0: var(--ink-950);
+  --surface-1: var(--ink-900);
+  --surface-2: var(--ink-850);
+  --surface-inset: var(--ink-950);
+  --surface-hover: var(--ink-800);
+
+  --line: var(--ink-700);
+  --line-strong: var(--ink-600);
+  --line-inner: var(--ink-800);
+
+  --text: var(--bone-100);
+  --text-soft: var(--bone-200);
+  --text-muted: var(--ink-400);
+
+  --accent: var(--gold-400);
+  --accent-strong: var(--gold-300);
+  --accent-line: var(--gold-600);
+  --on-accent: var(--ink-950);
+
+  --ok: var(--moss-400);
+  --danger: var(--ember-400);
+
+  --rarity-common: var(--ash-400);
+  --rarity-uncommon: var(--moss-400);
+  --rarity-rare: var(--tide-400);
+  --rarity-epic: var(--arcane-400);
+  --rarity-legendary: var(--flame-400);
+
+  --shadow-color: var(--ink-950);
+  --dither: var(--ink-850);
+}
+
+/* ── 2. Semantic: parchment (light) ────────────────────────────────────── */
+:root[data-theme='parchment'] {
+  color-scheme: light;
+
+  --surface-0: var(--bone-50);
+  --surface-1: var(--bone-100);
+  --surface-2: var(--bone-200);
+  --surface-inset: var(--bone-50);
+  --surface-hover: var(--bone-200);
+
+  --line: var(--bone-300);
+  --line-strong: var(--bone-500);
+  --line-inner: var(--bone-200);
+
+  --text: var(--bone-900);
+  --text-soft: var(--bone-700);
+  --text-muted: var(--bone-500);
+
+  --accent: var(--gold-800);
+  --accent-strong: var(--gold-800);
+  --accent-line: var(--gold-600);
+  --on-accent: var(--bone-50);
+
+  --ok: var(--moss-700);
+  --danger: var(--ember-700);
+
+  --rarity-common: var(--ash-700);
+  --rarity-uncommon: var(--moss-700);
+  --rarity-rare: var(--tide-700);
+  --rarity-epic: var(--arcane-700);
+  --rarity-legendary: var(--flame-700);
+
+  --shadow-color: var(--bone-300);
+  --dither: var(--bone-100);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+  }
+}
