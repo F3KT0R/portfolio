@@ -25,7 +25,13 @@ export default function RecruitPage() {
         lead="A role, a freelance build or a collaboration: tell me what you are working on and where I could help."
       />
       <PanelGrid>
-        <Frame title="Send a raven" titleId="send" titleAs="h2" className={panelWide}>
+        <Frame
+          title="Send a raven"
+          titleId="send"
+          waypoint="recruit"
+          titleAs="h2"
+          className={panelWide}
+        >
           <RecruitForm />
         </Frame>
         <Frame title="Other roads" titleId="other" titleAs="h2" className={panelWide}>

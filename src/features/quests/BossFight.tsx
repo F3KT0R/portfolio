@@ -15,7 +15,14 @@ const rounds: { key: keyof Omit<Boss, 'name'>; label: string }[] = [
 /** The quest's hardest bug, told as an encounter. The HP bar is empty: it was beaten. */
 export function BossFight({ boss }: { boss: Boss }) {
   return (
-    <Frame title="Boss fight" gloss={gloss.boss} titleId="boss" rarity="legendary" meta="defeated">
+    <Frame
+      title="Boss fight"
+      gloss={gloss.boss}
+      titleId="boss"
+      waypoint="boss"
+      rarity="legendary"
+      meta="defeated"
+    >
       <div className={styles.head}>
         <PixelIcon name="skull" size={48} className={styles.skull} />
         <div className={styles.nameplate}>

@@ -10,6 +10,8 @@ export const gameEventNames = [
   'secret:konami',
   'secret:console',
   'secret:night',
+  'companion:reroll',
+  'companion:toggle',
 ] as const
 
 export type GameEventName = (typeof gameEventNames)[number]

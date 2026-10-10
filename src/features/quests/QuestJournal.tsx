@@ -51,7 +51,7 @@ export function QuestJournal({ quest }: { quest: Quest }) {
       </header>
 
       {/* Two readers: the outcome in plain words, then the engineering summary. */}
-      <div className={styles.plain}>
+      <div className={styles.plain} data-waypoint="quest">
         <p className={styles.plainLabel}>In plain words</p>
         <p className={styles.plainText}>
           <RedactedText>{quest.plain}</RedactedText>

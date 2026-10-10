@@ -10,3 +10,15 @@ export {
   type Progress,
   type ProgressAction,
 } from './achievements'
+export {
+  companionLine,
+  newCompanionSeed,
+  parseCompanionState,
+  rollCompanion,
+  SPRITE_HEIGHT,
+  SPRITE_WIDTH,
+  tones,
+  type Companion,
+  type CompanionState,
+  type Tone,
+} from './companion'

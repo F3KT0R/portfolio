@@ -1,5 +1,6 @@
 import type { Route } from 'next'
 import { quests } from '@/content'
+import type { GameEventName } from '@/lib/game-events'
 import { primaryNav, routes } from '@/lib/routes'
 import { site } from '@/lib/site'
 
@@ -12,6 +13,7 @@ export type CommandAction =
   | { kind: 'download'; href: string }
   | { kind: 'copy'; text: string; done: string }
   | { kind: 'theme' }
+  | { kind: 'event'; name: GameEventName; done: string }
 
 export type Command = {
   id: string
@@ -72,6 +74,20 @@ export function buildCommands(): Command[] {
       label: 'Switch theme: dungeon ↔ parchment',
       keywords: 'dark light mode colour',
       action: { kind: 'theme' },
+    },
+    {
+      id: 'companion-reroll',
+      group: 'Actions',
+      label: 'Roll a new companion',
+      keywords: 'avatar character sidekick reroll random',
+      action: { kind: 'event', name: 'companion:reroll', done: 'A new companion joins you' },
+    },
+    {
+      id: 'companion-toggle',
+      group: 'Actions',
+      label: 'Send companion home / call it back',
+      keywords: 'avatar character sidekick hide show',
+      action: { kind: 'event', name: 'companion:toggle', done: 'Companion toggled' },
     },
     {
       id: 'open-github',

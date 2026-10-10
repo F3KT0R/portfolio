@@ -24,7 +24,11 @@ export function QuestCard({
   const cover = questCover(quest)
 
   return (
-    <Frame as="article" className={styles.card}>
+    <Frame
+      as="article"
+      className={styles.card}
+      waypoint={quest.classified ? 'classified' : 'quest'}
+    >
       {cover ? (
         // Decorative here: the quest page carries the described screenshots.
         <Image

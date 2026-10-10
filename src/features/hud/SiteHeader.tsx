@@ -13,7 +13,7 @@ export function SiteHeader() {
   const { level } = levelFromCareer(character.careerStart, new Date())
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} data-hud="top">
       <div className={styles.inner}>
         <Link
           href={routes.sheet}

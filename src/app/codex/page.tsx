@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { CompanionCard } from '@/features/companion'
 import { Codex } from '@/features/progress'
 import { pageMetadata } from '@/features/seo'
 import { gloss } from '@/lib/glossary'
@@ -23,8 +24,17 @@ export default function CodexPage() {
         lead="You are playing too. Exploring the site unlocks achievements; they live only in this browser and never leave it."
       />
       <PanelGrid>
-        <Frame title="Achievements" titleId="achievements" titleAs="h2" className={panelWide}>
+        <Frame
+          title="Achievements"
+          titleId="achievements"
+          waypoint="achievements"
+          titleAs="h2"
+          className={panelWide}
+        >
           <Codex />
+        </Frame>
+        <Frame title="Companion" gloss="your sidekick" titleId="companion" titleAs="h2">
+          <CompanionCard />
         </Frame>
         <Frame title="Controls" titleId="controls" titleAs="h2">
           <ul className={styles.howto}>
@@ -35,9 +45,12 @@ export default function CodexPage() {
               <Kbd>1</Kbd>–<Kbd>6</Kbd> travel between regions.
             </li>
             <li>Attributes, gear and skills open an item card when clicked.</li>
+            <li>
+              Your companion follows the panel you are reading. Hover a panel to call it over.
+            </li>
           </ul>
         </Frame>
-        <Frame title="About this game" titleId="about-game" titleAs="h2">
+        <Frame title="About this game" titleId="about-game" titleAs="h2" className={panelWide}>
           <ul className={styles.howto}>
             <li>Some achievements are hidden. The developer console is a good place to start.</li>
             <li>

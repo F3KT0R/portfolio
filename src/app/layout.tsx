@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import '@/styles/tokens.css'
 import '@/styles/base.css'
 
+import { Companion } from '@/features/companion'
 import { EasterEggs } from '@/features/easter-eggs'
 import { SiteFooter, SiteHeader } from '@/features/hud'
 import { ProgressTracker } from '@/features/progress'
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </main>
         <SiteFooter />
         <ProgressTracker />
+        <Companion />
         <EasterEggs />
       </body>
     </html>
